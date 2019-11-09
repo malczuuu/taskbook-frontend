@@ -1,0 +1,20 @@
+<div class="modal-header">
+  <h4 class="modal-title">Select Assignee</h4>
+</div>
+<div class="modal-body">
+  <table class="table">
+    <tbody>
+      <tr *ngFor="let user of users.content">
+        <td>{{ user.first_name + ' ' + user.last_name + ' <' + user.email + '>' }}</td>
+        <td class="text-right">
+          <button type="button" class="btn btn-outline-primary" (click)="select(user)">
+            Select
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-danger" (click)="dismiss()">Cancel</button>
+</div>

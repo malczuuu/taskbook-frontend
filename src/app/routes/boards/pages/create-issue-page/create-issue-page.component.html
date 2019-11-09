@@ -1,0 +1,21 @@
+<form [formGroup]="form" (ngSubmit)="onSave()">
+  <div class="form-group row" title="Issue's title">
+    <label for="create-issue-form-uid" class="col-sm-3 col-md-2 col-form-label">Title</label>
+    <div class="col-sm-9 col-md-10">
+      <input id="create-issue-form-uid" type="text" class="form-control" formControlName="title" />
+    </div>
+  </div>
+  <div class="form-group row" title="Issue's description">
+    <label for="create-issue-form-description" class="col-sm-3 col-md-2 col-form-label">
+      Description
+    </label>
+    <div class="col-sm-9 col-md-10">
+      <textarea
+        id="create-issue-form-description"
+        class="form-control"
+        formControlName="description"
+      ></textarea>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-outline-primary">Save</button>
+</form>

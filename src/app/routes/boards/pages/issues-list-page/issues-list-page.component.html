@@ -1,0 +1,22 @@
+<h2>Issues</h2>
+<table class="table table-sm table-striped">
+  <tbody>
+    <tr *ngFor="let issue of issues.content">
+      <td>
+        <a [routerLink]="issue.uid">{{ issue.uid }}: {{ issue.title }}</a>
+      </td>
+      <td [title]="'Filter by ' + issue.status + ' status'">
+        <a routerLink="." [queryParams]="{ status: issue.status }">{{ issue.status }}</a>
+      </td>
+      <td>
+        <a *ngIf="issue.assignee" [routerLink]="'/users/' + issue.assignee.uid"></a>
+        <ng-template [ngIf]="!issue.assignee">
+          <span class="font-italic">unassigned</span>
+        </ng-template>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3"><a routerLink="create">Create new issue...</a></td>
+    </tr>
+  </tbody>
+</table>

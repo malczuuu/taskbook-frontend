@@ -1,0 +1,23 @@
+<form [formGroup]="form" class="form-signin" (ngSubmit)="onLogin()">
+  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+  <label for="security-login-email-input" class="sr-only">Email address</label>
+  <input
+    type="email"
+    id="security-login-email-input"
+    class="form-control"
+    formControlName="email"
+    placeholder="Email address"
+    required
+    autofocus
+  />
+  <label for="security-login-password-input" class="sr-only">Password</label>
+  <input
+    type="password"
+    id="security-login-password-input"
+    class="form-control"
+    formControlName="password"
+    placeholder="Password"
+    required
+  />
+  <button class="btn btn-lg btn-outline-primary btn-block" type="submit">Sign in</button>
+</form>

@@ -1,0 +1,29 @@
+<h1>Create New Board</h1>
+
+<form [formGroup]="form" (ngSubmit)="onSave()">
+  <div class="form-group row" title="Board's unique UID">
+    <label for="create-board-form-uid" class="col-sm-3 col-md-2 col-form-label">UID</label>
+    <div class="col-sm-9 col-md-10">
+      <input id="create-board-form-uid" type="text" class="form-control" formControlName="uid" />
+    </div>
+  </div>
+  <div class="form-group row" title="Board's common name">
+    <label for="create-board-form-name" class="col-sm-3 col-md-2 col-form-label">Name</label>
+    <div class="col-sm-9 col-md-10">
+      <input id="create-board-form-name" type="text" class="form-control" formControlName="name" />
+    </div>
+  </div>
+  <div class="form-group row" title="Board's description">
+    <label for="create-board-form-description" class="col-sm-3 col-md-2 col-form-label">
+      Description
+    </label>
+    <div class="col-sm-9 col-md-10">
+      <textarea
+        id="create-board-form-description"
+        class="form-control"
+        formControlName="description"
+      ></textarea>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-outline-primary">Save</button>
+</form>

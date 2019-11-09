@@ -1,0 +1,9 @@
+<div class="card">
+  <div class="card-body">
+    <ul>
+      <li *ngFor="let item of menu">
+        <a [routerLink]="item.url" routerLinkActive="active">{{ item.name }}</a>
+      </li>
+    </ul>
+  </div>
+</div>

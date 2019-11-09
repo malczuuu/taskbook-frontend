@@ -1,0 +1,15 @@
+@import "~node_modules/bootstrap/scss/bootstrap.scss";
+@import '~node_modules/ngx-toastr/toastr-bs4-alert';
+
+html,
+body {
+  height: 100vh;
+}
+
+main>.container {
+  padding: 80px 15px 0;
+}
+
+code {
+  font-size: 80%;
+}

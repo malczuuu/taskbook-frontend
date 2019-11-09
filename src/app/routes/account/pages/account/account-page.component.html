@@ -1,0 +1,132 @@
+<ng-template [ngIf]="accountForm">
+  <form [formGroup]="accountForm" (ngSubmit)="onAccountSave()">
+    <h3>Account Settings</h3>
+    <div class="form-group row" title="Account unique ID">
+      <label for="account-form-uid" class="col-sm-3 col-md-2 col-form-label">UID</label>
+      <div class="col-sm-9 col-md-10">
+        <input
+          id="account-form-uid"
+          type="text"
+          class="form-control"
+          formControlName="uid"
+          readonly
+        />
+      </div>
+    </div>
+    <div class="form-group row" title="Account e-mail address">
+      <label for="account-form-email" class="col-sm-3 col-md-2 col-form-label">
+        E-mail address
+      </label>
+      <div class="col-sm-9 col-md-10">
+        <input id="account-form-email" type="text" class="form-control" formControlName="email" />
+      </div>
+    </div>
+    <div class="form-group row" title="Account role">
+      <label for="account-form-role" class="col-sm-3 col-md-2 col-form-label">Role</label>
+      <div class="col-sm-9 col-md-10">
+        <input
+          id="account-form-role"
+          type="text"
+          class="form-control"
+          formControlName="role"
+          readonly
+        />
+      </div>
+    </div>
+    <div class="form-group row" title="Account first name">
+      <label for="account-form-first-name" class="col-sm-3 col-md-2 col-form-label">
+        First name
+      </label>
+      <div class="col-sm-9 col-md-10">
+        <input
+          id="account-form-first-name"
+          type="text"
+          class="form-control"
+          formControlName="firstName"
+        />
+      </div>
+    </div>
+    <div class="form-group row" title="Account last name">
+      <label for="account-form-last-name" class="col-sm-3 col-md-2 col-form-label">
+        Last name
+      </label>
+      <div class="col-sm-9 col-md-10">
+        <input
+          id="account-form-last-name"
+          type="text"
+          class="form-control"
+          formControlName="lastName"
+        />
+      </div>
+    </div>
+    <div class="text-right">
+      <button type="submit" class="btn btn-outline-primary">Update settings</button>
+    </div>
+  </form>
+
+  <hr />
+
+  <button
+    *ngIf="!changePasswordVisible"
+    type="button"
+    class="btn btn-outline-primary"
+    (click)="changePasswordVisible = true"
+  >
+    Change password
+  </button>
+
+  <form [formGroup]="passwordForm" *ngIf="changePasswordVisible" (ngSubmit)="onPasswordSave()">
+    <h3>Change password</h3>
+    <div class="form-group row" title="Account old password">
+      <label for="account-form-old-password" class="col-sm-4 col-md-3 col-form-label">
+        Old password
+      </label>
+      <div class="col-sm-8 col-md-9">
+        <input
+          id="account-form-old-password"
+          type="password"
+          class="form-control"
+          formControlName="oldPassword"
+        />
+      </div>
+    </div>
+    <div class="form-group row" title="Account new password">
+      <label for="account-form-new-password" class="col-sm-4 col-md-3 col-form-label">
+        New password
+      </label>
+      <div class="col-sm-8 col-md-9">
+        <input
+          id="account-form-new-password"
+          type="password"
+          class="form-control"
+          formControlName="newPassword"
+        />
+      </div>
+    </div>
+    <div class="form-group row" title="Account new password confirmation">
+      <label for="account-form-new-password-confirm" class="col-sm-4 col-md-3 col-form-label">
+        Confirm new password
+      </label>
+      <div class="col-sm-8 col-md-9">
+        <input
+          id="account-form-new-password-confirm"
+          type="password"
+          class="form-control"
+          formControlName="confirmNewPassword"
+        />
+      </div>
+    </div>
+    <div class="text-right">
+      <div class="btn-group" role="group" aria-label="Change Password Buttons">
+        <button
+          type="button"
+          class="btn btn-outline-danger"
+          (click)="changePasswordVisible = false"
+        >
+          Cancel
+        </button>
+        <button type="submit" class="btn btn-outline-primary">Change password</button>
+      </div>
+    </div>
+  </form>
+</ng-template>

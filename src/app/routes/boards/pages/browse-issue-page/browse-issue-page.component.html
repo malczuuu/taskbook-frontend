@@ -1,0 +1,60 @@
+<ng-template [ngIf]="issue && form">
+  <form [formGroup]="form" (ngSubmit)="onSave()">
+    <div class="form-group row" title="Issue's title">
+      <label for="update-issue-form-uid" class="col-sm-3 col-md-2 col-form-label">Title</label>
+      <div class="col-sm-9 col-md-10">
+        <input
+          id="update-issue-form-uid"
+          type="text"
+          class="form-control"
+          formControlName="title"
+        />
+      </div>
+    </div>
+    <div class="form-group row" title="Issue's assignee">
+      <label for="update-issue-form-assignee" class="col-sm-3 col-md-2 col-form-label">
+        Assignee
+      </label>
+      <div class="col-sm-9 col-md-10">
+        <div class="input-group mb-3">
+          <input
+            id="update-issue-form-assignee"
+            type="text"
+            class="form-control"
+            readonly
+            disabled
+            value="boo"
+          />
+          <div class="input-group-append">
+            <button type="button" class="btn btn-outline-primary" (click)="selectAssignee()">
+              Edit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row" title="Issue's status">
+      <label for="update-issue-form-status" class="col-sm-3 col-md-2 col-form-label">Status</label>
+      <div class="col-sm-9 col-md-10">
+        <select id="update-issue-form-status" class="form-control" formControlName="status">
+          <option value="to_do">To Do</option>
+          <option value="in_progress">In Progress</option>
+          <option value="done">Done</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row" title="Issue's description">
+      <label for="update-issue-form-description" class="col-sm-3 col-md-2 col-form-label">
+        Description
+      </label>
+      <div class="col-sm-9 col-md-10">
+        <textarea
+          id="update-issue-form-description"
+          class="form-control"
+          formControlName="description"
+        ></textarea>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-outline-primary">Save</button>
+  </form>
+</ng-template>

@@ -1,0 +1,40 @@
+<header>
+  <nav class="navbar navbar-expand navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" routerLink="/">Taskbook</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto" *ngIf="account">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/boards" routerLinkActive="active">Boards</a>
+        </li>
+        <li class="nav-item" *ngIf="account.role === 'admin'">
+          <a class="nav-link" routerLink="/admin" routerLinkActive="active">Admin</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/account" routerLinkActive="active">Account</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav mt-2 mt-md-0">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/security/logout">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main role="main" class="flex-shrink-0">
+  <div class="container">
+    <app-breadcrumbs></app-breadcrumbs>
+    <router-outlet></router-outlet>
+  </div>
+</main>
+
+<footer class="footer mt-auto py-3">
+  <div class="container">
+    <span class="text-muted">
+      Copyright &copy; {{ year }}
+      <a href="https://github.com/malczuuu" target="_blank">Damian Malczewski</a>
+      . All rights reserved.
+    </span>
+  </div>
+</footer>

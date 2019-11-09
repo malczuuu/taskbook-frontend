@@ -1,0 +1,29 @@
+<h2>Users</h2>
+<div class="text-right">
+  <a class="btn btn-outline-primary" routerLink="create">New User</a>
+</div>
+<hr />
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">First name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">Role</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users.content; let i = index">
+      <th scope="row">{{ indexOf(i) }}</th>
+      <td>{{ user.email }}</td>
+      <td>{{ user.first_name }}</td>
+      <td>{{ user.last_name }}</td>
+      <td>{{ user.role }}</td>
+      <td class="text-right">
+        <a class="btn btn-sm btn-outline-primary" [routerLink]="user.uid">Browse</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
