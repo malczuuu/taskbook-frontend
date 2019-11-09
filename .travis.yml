@@ -1,0 +1,11 @@
+os: linux
+group: stable
+dist: trusty
+
+language: node_js
+node_js:
+  - "11.15.0"
+
+install: npm install
+
+script: npm run build
