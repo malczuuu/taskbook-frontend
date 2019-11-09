@@ -9,6 +9,7 @@ import { UsersPageComponent } from './pages/users-page/users-page.component';
 import { BrowseUserPageComponent } from './pages/browse-user-page/browse-user-page.component';
 import { UsersListPageComponent } from './pages/users-list-page/users-list-page.component';
 import { CreateUserPageComponent } from './pages/create-user-page/create-user-page.component';
+import { UsersListComponent } from './components/users-list/users-list.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CreateUserPageComponent } from './pages/create-user-page/create-user-pa
     UsersPageComponent,
     BrowseUserPageComponent,
     UsersListPageComponent,
-    CreateUserPageComponent
+    CreateUserPageComponent,
+    UsersListComponent
   ],
   imports: [CommonModule, AdminRoutingModule, ReactiveFormsModule, CoreModule]
 })

@@ -19,14 +19,13 @@ export class BrowseBoardPageComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     private breadcrumbsService: BreadcrumbsService
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     this.route.params.subscribe(params =>
       this.boardsService
-      .getOne(params.board)
-      .subscribe(board => this.assignBoard(board), error => this.router.navigate(['/boards']))
+        .getOne(params.board)
+        .subscribe(board => this.assignBoard(board), error => this.router.navigate(['/boards']))
     );
   }
 

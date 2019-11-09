@@ -7,7 +7,6 @@ import { MenuItem } from './menu.model';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent {
-
   @Input()
   menu: MenuItem[] = [];
 }

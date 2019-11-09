@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { emptyPage, Page } from '../../../../core/api/core.model';
 import { User } from '../../../../core/api/users.model';
 import { UsersService } from '../../../../core/api/users.service';
@@ -13,7 +14,7 @@ export class UsersListPageComponent implements OnInit {
   size = 20;
   users: Page<User> = emptyPage<User>();
 
-  constructor(private usersService: UsersService) {}
+  constructor(private usersService: UsersService, private router: Router) {}
 
   ngOnInit() {
     this.fetchUsers();
@@ -21,9 +22,5 @@ export class UsersListPageComponent implements OnInit {
 
   private fetchUsers() {
     this.usersService.getAll(this.page, this.size).subscribe(users => (this.users = users));
-  }
-
-  indexOf(index: number): number {
-    return 1 + index + this.page * this.size;
   }
 }
