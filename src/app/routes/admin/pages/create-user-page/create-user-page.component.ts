@@ -12,8 +12,6 @@ import { NotificationService } from '../../../../core/layout/notification/notifi
   styleUrls: ['./create-user-page.component.scss']
 })
 export class CreateUserPageComponent implements OnInit, OnDestroy {
-  form: FormGroup;
-
   constructor(
     private usersService: UsersService,
     private breadcrumbsService: BreadcrumbsService,
@@ -23,28 +21,13 @@ export class CreateUserPageComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.breadcrumbsService.push({ url: '/admin/users/create', name: 'Create' });
-    this.form = new FormGroup({
-      email: new FormControl('', [Validators.required]),
-      role: new FormControl('user', [Validators.required]),
-      password: new FormControl('', [Validators.required]),
-      confirmPassword: new FormControl('', [Validators.required]),
-      firstName: new FormControl(''),
-      lastName: new FormControl('')
-    });
   }
 
   ngOnDestroy(): void {
     this.breadcrumbsService.pop();
   }
 
-  onSubmit() {
-    const user: NewUser = {
-      email: this.form.get('email').value,
-      role: this.form.get('role').value,
-      password: this.form.get('password').value,
-      first_name: this.form.get('firstName').value,
-      last_name: this.form.get('lastName').value
-    };
+  onSubmit(user: NewUser) {
     this.usersService.create(user).subscribe(
       createdUser => {
         this.notificationService.success('User has been created');

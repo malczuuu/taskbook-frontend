@@ -10,6 +10,7 @@ import { BrowseUserPageComponent } from './pages/browse-user-page/browse-user-pa
 import { UsersListPageComponent } from './pages/users-list-page/users-list-page.component';
 import { CreateUserPageComponent } from './pages/create-user-page/create-user-page.component';
 import { UsersListComponent } from './components/users-list/users-list.component';
+import { NewUserFormComponent } from './components/new-user-form/new-user-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { UsersListComponent } from './components/users-list/users-list.component
     BrowseUserPageComponent,
     UsersListPageComponent,
     CreateUserPageComponent,
-    UsersListComponent
+    UsersListComponent,
+    NewUserFormComponent
   ],
   imports: [CommonModule, AdminRoutingModule, ReactiveFormsModule, CoreModule]
 })
