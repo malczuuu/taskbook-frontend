@@ -36,6 +36,12 @@ export class NewUserFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.save.emit();
+    this.save.emit({
+      email: this.form.get('email').value,
+      password: this.form.get('password').value,
+      role: this.form.get('role').value,
+      first_name: this.form.get('firstName').value,
+      last_name: this.form.get('lastName').value
+    });
   }
 }
