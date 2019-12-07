@@ -3,7 +3,7 @@
   "version": "1.0.0-SNAPSHOT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 26161",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
