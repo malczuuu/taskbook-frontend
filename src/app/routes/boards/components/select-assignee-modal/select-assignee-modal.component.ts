@@ -1,8 +1,9 @@
-import { Page, emptyPage } from '../../../../core/api/core.model';
-import { UsersService } from '../../../../core/api/users.service';
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/core/api/users.model';
+import { FormControl, FormGroup } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { User } from 'src/app/core/api/users.model';
+import { emptyPage, Page } from '../../../../core/api/core.model';
+import { UsersService } from '../../../../core/api/users.service';
 
 @Component({
   selector: 'app-select-assignee-modal',
@@ -11,15 +12,24 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class SelectAssigneeModalComponent implements OnInit {
   users: Page<User> = emptyPage();
+  form: FormGroup;
+  query = '';
 
-  constructor(private usersService: UsersService, private modal: NgbActiveModal) {}
-
-  ngOnInit() {
-    this.fetch('');
+  constructor(private usersService: UsersService, private modal: NgbActiveModal) {
   }
 
-  fetch(text: string) {
-    this.usersService.getAllByQuery(text).subscribe(users => (this.users = users));
+  ngOnInit() {
+    this.form = new FormGroup({ query: new FormControl('') });
+    this.fetch();
+  }
+
+  fetch() {
+    this.usersService.getAllByQuery(this.query).subscribe(users => (this.users = users));
+  }
+
+  onSubmit() {
+    this.query = this.form.get('query').value;
+    this.fetch();
   }
 
   select(user: User) {

@@ -1,13 +1,13 @@
-import { User } from '../../../../core/api/users.model';
-import { SelectAssigneeModalComponent } from './../../components/select-assignee-modal/select-assignee-modal.component';
-import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Issue, IssueUpdate } from '../../../../core/api/issues.model';
 import { IssuesService } from '../../../../core/api/issues.service';
+import { User } from '../../../../core/api/users.model';
 import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcrumbs.service';
 import { NotificationService } from '../../../../core/layout/notification/notification.service';
+import { SelectAssigneeModalComponent } from '../../components/select-assignee-modal/select-assignee-modal.component';
 
 @Component({
   selector: 'app-browse-issue-page',
@@ -26,7 +26,8 @@ export class BrowseIssuePageComponent implements OnInit, OnDestroy {
     private breadcrumbsService: BreadcrumbsService,
     private notificationService: NotificationService,
     private modalService: NgbModal
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
     this.route.parent.parent.params.subscribe(parentParams => {
@@ -47,7 +48,7 @@ export class BrowseIssuePageComponent implements OnInit, OnDestroy {
 
   private onIssueFetched(issue: Issue) {
     this.issue = issue;
-    this.assignee = issue.assignee;
+    this.assign(issue.assignee);
     this.form = new FormGroup({
       title: new FormControl(this.issue.title),
       status: new FormControl(this.issue.status),
@@ -74,16 +75,29 @@ export class BrowseIssuePageComponent implements OnInit, OnDestroy {
       title: this.form.get('title').value,
       status: this.form.get('status').value,
       detail: this.form.get('description').value,
-      assignee: null
+      assignee: this.assignee !== null ? this.assignee.uid : null
     };
   }
 
   selectAssignee() {
     const modal: NgbModalRef = this.modalService.open(SelectAssigneeModalComponent);
-    modal.result.then(result => this.assign(result), () => {});
+    modal.result.then(result => this.assign(result), () => {
+    });
   }
 
   private assign(assignee: User) {
     this.assignee = assignee;
+  }
+
+  assigneeAsString(): string {
+    if (this.assignee) {
+      return `${this.nameOfAssignee()} <${this.assignee.email}>`.trim();
+    } else {
+      return '(unassigned)';
+    }
+  }
+
+  private nameOfAssignee(): string {
+    return `${this.assignee.first_name} ${this.assignee.last_name}`.trim();
   }
 }

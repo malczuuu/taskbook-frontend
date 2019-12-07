@@ -8,7 +8,7 @@ import { MenuItem } from '../../../../core/layout/menu/menu.model';
   styleUrls: ['./admin-page.component.scss']
 })
 export class AdminPageComponent implements OnInit, OnDestroy {
-  menu: MenuItem[] = [{ url: 'settings', name: 'Settings' }, { url: 'users', name: 'Users' }];
+  menu: MenuItem[] = [{ url: 'users', name: 'Users' }];
 
   constructor(private breadcrumbsService: BreadcrumbsService) {}
 

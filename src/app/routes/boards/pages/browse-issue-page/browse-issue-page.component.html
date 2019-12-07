@@ -23,7 +23,7 @@
             class="form-control"
             readonly
             disabled
-            value="boo"
+            [value]="assigneeAsString()"
           />
           <div class="input-group-append">
             <button type="button" class="btn btn-outline-primary" (click)="selectAssignee()">
