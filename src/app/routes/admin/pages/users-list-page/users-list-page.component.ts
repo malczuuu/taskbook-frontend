@@ -23,4 +23,9 @@ export class UsersListPageComponent implements OnInit {
   private fetchUsers() {
     this.usersService.getAll(this.page, this.size).subscribe(users => (this.users = users));
   }
+
+  onPageChange(page: number) {
+    this.page = page - 1;
+    this.fetchUsers();
+  }
 }

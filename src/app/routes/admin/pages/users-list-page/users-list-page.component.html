@@ -5,4 +5,20 @@
 
 <hr />
 
-<app-users-list [users]="users.content" [offset]="size * page"></app-users-list>
+<ng-template [ngIf]="users.total_pages > 1">
+  <ngb-pagination
+    (pageChange)="onPageChange($event)"
+    [page]="users.number + 1"
+    [pageSize]="users.number_of_elements"
+    [collectionSize]="users.total_elements"
+  ></ngb-pagination>
+</ng-template>
+<app-users-list [users]="users.content" [offset]="size * page + 1"></app-users-list>
+<ng-template [ngIf]="users.total_pages > 1">
+  <ngb-pagination
+    (pageChange)="onPageChange($event)"
+    [page]="users.number + 1"
+    [pageSize]="users.number_of_elements"
+    [collectionSize]="users.total_elements"
+  ></ngb-pagination>
+</ng-template>
