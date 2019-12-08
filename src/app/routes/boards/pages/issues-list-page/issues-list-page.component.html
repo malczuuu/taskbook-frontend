@@ -1,6 +1,5 @@
-<h2>Issues</h2>
-
 <ngb-pagination
+  class="d-flex justify-content-end"
   (pageChange)="onPageChange($event)"
   [page]="issues.number + 1"
   [pageSize]="issues.number_of_elements"
@@ -10,34 +9,35 @@
 
 <table class="table table-sm table-striped">
   <thead>
-  <tr>
-    <th scope="col">Issue</th>
-    <th scope="col">Status</th>
-    <th scope="col">Assignee</th>
-  </tr>
+    <tr>
+      <th scope="col">Issue</th>
+      <th scope="col">Status</th>
+      <th scope="col">Assignee</th>
+    </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let issue of issues.content">
-    <td>
-      <a [routerLink]="issue.uid">[{{ issue.uid }}] {{ issue.title }}</a>
-    </td>
-    <td [title]="'Filter by ' + issue.status + ' status'">
-      <a routerLink="." [queryParams]="{ status: issue.status }">{{ issue.status }}</a>
-    </td>
-    <td>
-      <a *ngIf="issue.assignee" [routerLink]="'/users/' + issue.assignee.uid">
-        {{ nameOf(issue.assignee) }}
-      </a>
-      <span *ngIf="!issue.assignee" class="font-italic">unassigned</span>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="3"><a routerLink="create">Create new issue...</a></td>
-  </tr>
+    <tr *ngFor="let issue of issues.content">
+      <td>
+        <a [routerLink]="issue.uid">[{{ issue.uid }}] {{ issue.title }}</a>
+      </td>
+      <td [title]="'Filter by ' + issue.status + ' status'">
+        <a routerLink="." [queryParams]="{ status: issue.status }">{{ issue.status }}</a>
+      </td>
+      <td>
+        <a *ngIf="issue.assignee" [routerLink]="'/users/' + issue.assignee.uid">
+          {{ nameOf(issue.assignee) }}
+        </a>
+        <span *ngIf="!issue.assignee" class="font-italic">unassigned</span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3"><a routerLink="create">Create new issue...</a></td>
+    </tr>
   </tbody>
 </table>
 
 <ngb-pagination
+  class="d-flex justify-content-end"
   (pageChange)="onPageChange($event)"
   [page]="issues.number + 1"
   [pageSize]="issues.number_of_elements"

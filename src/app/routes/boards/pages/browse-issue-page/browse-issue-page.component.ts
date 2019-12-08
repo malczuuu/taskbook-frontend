@@ -26,8 +26,7 @@ export class BrowseIssuePageComponent implements OnInit, OnDestroy {
     private breadcrumbsService: BreadcrumbsService,
     private notificationService: NotificationService,
     private modalService: NgbModal
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     this.route.parent.parent.params.subscribe(parentParams => {
@@ -81,8 +80,7 @@ export class BrowseIssuePageComponent implements OnInit, OnDestroy {
 
   selectAssignee() {
     const modal: NgbModalRef = this.modalService.open(SelectAssigneeModalComponent);
-    modal.result.then(result => this.assign(result), () => {
-    });
+    modal.result.then(result => this.assign(result), () => {});
   }
 
   private assign(assignee: User) {

@@ -1,11 +1,6 @@
 <ng-template [ngIf]="board">
-  <h1>{{ displayNameOf(board) }}</h1>
-  <div class="row">
-    <div class="col-sm-12 col-md-4 col-lg-3">
-      <app-menu [menu]="menu"></app-menu>
-    </div>
-    <div class="col-sm-12 col-md-8 col-lg-9">
-      <router-outlet></router-outlet>
-    </div>
+  <app-menu [menu]="menu"></app-menu>
+  <div class="browse-board-container">
+    <router-outlet></router-outlet>
   </div>
 </ng-template>

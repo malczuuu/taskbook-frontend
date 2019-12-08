@@ -1,10 +1,7 @@
-<h2>Users</h2>
-<div class="text-right">
-  <a class="btn btn-outline-primary" routerLink="create">New User</a>
-</div>
+<a class="btn btn-outline-primary" routerLink="create">New User</a>
 
-<hr/>
 <ngb-pagination
+  class="d-flex justify-content-end"
   (pageChange)="onPageChange($event)"
   [page]="users.number + 1"
   [pageSize]="users.number_of_elements"
@@ -15,6 +12,7 @@
 <app-users-list [users]="users.content" [offset]="size * page + 1"></app-users-list>
 
 <ngb-pagination
+  class="d-flex justify-content-end"
   (pageChange)="onPageChange($event)"
   [page]="users.number + 1"
   [pageSize]="users.number_of_elements"

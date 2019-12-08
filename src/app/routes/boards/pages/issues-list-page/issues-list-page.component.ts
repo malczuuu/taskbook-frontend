@@ -16,8 +16,7 @@ export class IssuesListPageComponent implements OnInit {
   page = 0;
   size = 20;
 
-  constructor(private issuesService: IssuesService, private route: ActivatedRoute) {
-  }
+  constructor(private issuesService: IssuesService, private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.route.parent.parent.params.subscribe(params => {
@@ -27,8 +26,9 @@ export class IssuesListPageComponent implements OnInit {
   }
 
   private fetchIssues() {
-    this.issuesService.getAll(this.board, this.page, this.size).subscribe(
-      issues => (this.issues = issues));
+    this.issuesService
+      .getAll(this.board, this.page, this.size)
+      .subscribe(issues => (this.issues = issues));
   }
 
   nameOf(user: User): string {

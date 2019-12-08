@@ -15,8 +15,7 @@ export class SelectAssigneeModalComponent implements OnInit {
   form: FormGroup;
   query = '';
 
-  constructor(private usersService: UsersService, private modal: NgbActiveModal) {
-  }
+  constructor(private usersService: UsersService, private modal: NgbActiveModal) {}
 
   ngOnInit() {
     this.form = new FormGroup({ query: new FormControl('') });

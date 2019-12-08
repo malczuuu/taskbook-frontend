@@ -5,7 +5,12 @@
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <label for="select-assignee-query-input" class="sr-only">Query</label>
     <div class="input-group mb-3">
-      <input id="select-assignee-query-input" type="text" formControlName="query" class="form-control"/>
+      <input
+        id="select-assignee-query-input"
+        type="text"
+        formControlName="query"
+        class="form-control"
+      />
       <div class="input-group-append">
         <button class="btn btn-outline-secondary" type="submit">Find</button>
       </div>
@@ -13,22 +18,22 @@
   </form>
   <table class="table">
     <tbody>
-    <tr>
-      <td>(unassigned)</td>
-      <td class="text-right">
-        <button type="button" class="btn btn-outline-primary" (click)="select(null)">
-          Select
-        </button>
-      </td>
-    </tr>
-    <tr *ngFor="let user of users.content">
-      <td>{{ user.first_name + ' ' + user.last_name + ' <' + user.email + '>' }}</td>
-      <td class="text-right">
-        <button type="button" class="btn btn-outline-primary" (click)="select(user)">
-          Select
-        </button>
-      </td>
-    </tr>
+      <tr>
+        <td>(unassigned)</td>
+        <td class="text-right">
+          <button type="button" class="btn btn-outline-primary" (click)="select(null)">
+            Select
+          </button>
+        </td>
+      </tr>
+      <tr *ngFor="let user of users.content">
+        <td>{{ user.first_name + ' ' + user.last_name + ' <' + user.email + '>' }}</td>
+        <td class="text-right">
+          <button type="button" class="btn btn-outline-primary" (click)="select(user)">
+            Select
+          </button>
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>

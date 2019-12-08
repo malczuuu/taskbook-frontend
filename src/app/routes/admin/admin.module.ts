@@ -23,5 +23,4 @@ import { UsersPageComponent } from './pages/users-page/users-page.component';
   ],
   imports: [CommonModule, AdminRoutingModule, ReactiveFormsModule, CoreModule]
 })
-export class AdminModule {
-}
+export class AdminModule {}
