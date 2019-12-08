@@ -63,7 +63,7 @@ export class BrowseIssuePageComponent implements OnInit, OnDestroy {
   onSave() {
     this.issuesService.update(this.board, this.issue.uid, this.readForm()).subscribe(
       issue => {
-        this.notificationService.success('issue updated successfully');
+        this.notificationService.success('Issue updated successfully');
         this.issue = issue;
       },
       error => this.notificationService.error(error.error.detail || error.error.title)

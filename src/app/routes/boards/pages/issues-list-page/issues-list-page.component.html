@@ -1,22 +1,46 @@
 <h2>Issues</h2>
+
+<ngb-pagination
+  (pageChange)="onPageChange($event)"
+  [page]="issues.number + 1"
+  [pageSize]="issues.number_of_elements"
+  [collectionSize]="issues.total_elements"
+  [disabled]="issues.total_pages === 1"
+></ngb-pagination>
+
 <table class="table table-sm table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Issue</th>
+    <th scope="col">Status</th>
+    <th scope="col">Assignee</th>
+  </tr>
+  </thead>
   <tbody>
-    <tr *ngFor="let issue of issues.content">
-      <td>
-        <a [routerLink]="issue.uid">{{ issue.uid }}: {{ issue.title }}</a>
-      </td>
-      <td [title]="'Filter by ' + issue.status + ' status'">
-        <a routerLink="." [queryParams]="{ status: issue.status }">{{ issue.status }}</a>
-      </td>
-      <td>
-        <a *ngIf="issue.assignee" [routerLink]="'/users/' + issue.assignee.uid"></a>
-        <ng-template [ngIf]="!issue.assignee">
-          <span class="font-italic">unassigned</span>
-        </ng-template>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3"><a routerLink="create">Create new issue...</a></td>
-    </tr>
+  <tr *ngFor="let issue of issues.content">
+    <td>
+      <a [routerLink]="issue.uid">[{{ issue.uid }}] {{ issue.title }}</a>
+    </td>
+    <td [title]="'Filter by ' + issue.status + ' status'">
+      <a routerLink="." [queryParams]="{ status: issue.status }">{{ issue.status }}</a>
+    </td>
+    <td>
+      <a *ngIf="issue.assignee" [routerLink]="'/users/' + issue.assignee.uid">
+        {{ nameOf(issue.assignee) }}
+      </a>
+      <span *ngIf="!issue.assignee" class="font-italic">unassigned</span>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3"><a routerLink="create">Create new issue...</a></td>
+  </tr>
   </tbody>
 </table>
+
+<ngb-pagination
+  (pageChange)="onPageChange($event)"
+  [page]="issues.number + 1"
+  [pageSize]="issues.number_of_elements"
+  [collectionSize]="issues.total_elements"
+  [disabled]="issues.total_pages === 1"
+></ngb-pagination>
