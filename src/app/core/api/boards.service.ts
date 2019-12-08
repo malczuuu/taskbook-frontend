@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Board } from './boards.model';
+import { Board, BoardUpdate } from './boards.model';
 import { Page } from './core.model';
 
 @Injectable({
@@ -22,5 +22,9 @@ export class BoardsService {
 
   create(board: Board): Observable<Board> {
     return this.http.post<Board>('/api/boards', board);
+  }
+
+  update(uid: string, board: BoardUpdate): Observable<Board> {
+    return this.http.put<Board>(`/api/boards/${uid}`, board);
   }
 }

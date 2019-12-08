@@ -3,3 +3,8 @@ export interface Board {
   name: string;
   description: string;
 }
+
+export interface BoardUpdate {
+  name: string;
+  description: string;
+}
