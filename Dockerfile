@@ -11,6 +11,6 @@ FROM nginx:1.17.5
 WORKDIR /usr/share/nginx/html
 
 COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder /builder/dist .
+COPY --from=builder /builder/dist/taskbook-frontend/* ./
 
 EXPOSE 26161
