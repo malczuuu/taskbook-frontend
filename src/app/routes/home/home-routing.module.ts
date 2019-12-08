@@ -11,7 +11,8 @@ const routes: Routes = [
     children: [
       { path: 'account', loadChildren: '../account/account.module#AccountModule' },
       { path: 'admin', loadChildren: '../admin/admin.module#AdminModule' },
-      { path: 'boards', loadChildren: '../boards/boards.module#BoardsModule' }
+      { path: 'boards', loadChildren: '../boards/boards.module#BoardsModule' },
+      { path: 'users', loadChildren: '../users/users.module#UsersModule' }
     ]
   }
 ];
@@ -20,4 +21,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class HomeRoutingModule {}
+export class HomeRoutingModule {
+}
