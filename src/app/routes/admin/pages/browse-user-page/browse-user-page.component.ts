@@ -30,8 +30,19 @@ export class BrowseUserPageComponent implements OnInit, OnDestroy {
     this.user = user;
     this.breadcrumbsService.push({
       url: `/admin/users/${user.uid}`,
-      name: `${user.first_name} ${user.last_name}`.trim()
+      name: this.nameOfUser()
     });
+  }
+
+  private nameOfUser(): string {
+    let name = `${this.user.first_name} ${this.user.last_name}`.trim();
+    if (name.length === 0) {
+      name = this.user.email;
+    }
+    if (name.length > 18) {
+      name = `${name.substring(0, 15)}...`;
+    }
+    return name;
   }
 
   ngOnDestroy() {
