@@ -1,5 +1,8 @@
 <ul class="nav nav-tabs">
   <li *ngFor="let item of menu" class="nav-item">
-    <a [routerLink]="item.url" class="nav-link" routerLinkActive="active">{{ item.name }}</a>
+    <a *ngIf="!item.disabled" [routerLink]="item.url" class="nav-link" routerLinkActive="active">
+      {{ item.name }}
+    </a>
+    <a *ngIf="item.disabled" class="nav-link disabled">{{ item.name }}</a>
   </li>
 </ul>

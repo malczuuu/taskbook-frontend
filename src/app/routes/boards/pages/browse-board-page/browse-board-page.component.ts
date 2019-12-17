@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BoardsService } from 'src/app/core/api/boards.service';
+import { AccountService } from '../../../../core/api/account.service';
 import { Board } from '../../../../core/api/boards.model';
 import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcrumbs.service';
 import { MenuItem } from '../../../../core/layout/menu/menu.model';
@@ -11,17 +12,25 @@ import { MenuItem } from '../../../../core/layout/menu/menu.model';
   styleUrls: ['./browse-board-page.component.scss']
 })
 export class BrowseBoardPageComponent implements OnInit, OnDestroy {
-  menu: MenuItem[] = [{ url: 'issues', name: 'Issues' }, { url: 'settings', name: 'Settings' }];
+  menu: MenuItem[] = [{ url: 'issues', name: 'Issues' }];
   board: Board;
 
   constructor(
     private boardsService: BoardsService,
+    private accountService: AccountService,
     private route: ActivatedRoute,
     private router: Router,
     private breadcrumbsService: BreadcrumbsService
   ) {}
 
   ngOnInit() {
+    this.accountService.getAccount().subscribe(account => {
+      if (account.role === 'admin') {
+        this.menu.push({ url: 'settings', name: 'Settings' });
+      } else {
+        this.menu.push({ url: 'settings', name: 'Settings', disabled: true });
+      }
+    });
     this.route.params.subscribe(params =>
       this.boardsService
         .getOne(params.board)
