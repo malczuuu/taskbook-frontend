@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Credentials, Session } from '../../../../core/api/security.model';
 import { SecurityService } from '../../../../core/api/security.service';
+import { NotificationService } from '../../../../core/layout/notification/notification.service';
 
 @Component({
   selector: 'app-login-page',
@@ -10,9 +11,11 @@ import { SecurityService } from '../../../../core/api/security.service';
 })
 export class LoginPageComponent implements OnInit {
   form: FormGroup;
-  error: string | null = null;
 
-  constructor(private securityService: SecurityService) {}
+  constructor(
+    private securityService: SecurityService,
+    private notificationService: NotificationService
+  ) {}
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -27,7 +30,7 @@ export class LoginPageComponent implements OnInit {
       .login(credentials)
       .subscribe(
         session => this.onLoginSuccessful(session),
-        error => (this.error = error.error.detail)
+        error => this.notificationService.error('Bad credentials')
       );
   }
 

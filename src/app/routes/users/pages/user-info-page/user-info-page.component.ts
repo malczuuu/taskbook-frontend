@@ -10,15 +10,14 @@ import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcru
   styleUrls: ['./user-info-page.component.scss']
 })
 export class UserInfoPageComponent implements OnInit, OnDestroy {
-
   userUid = '';
   user: User;
 
   constructor(
     private usersService: UsersService,
     private route: ActivatedRoute,
-    private breadcrumbsService: BreadcrumbsService) {
-  }
+    private breadcrumbsService: BreadcrumbsService
+  ) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
