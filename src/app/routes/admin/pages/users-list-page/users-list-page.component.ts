@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { emptyPage, Page } from '../../../../core/api/core.model';
 import { User } from '../../../../core/api/users.model';
 import { UsersService } from '../../../../core/api/users.service';
+import { NotificationService } from '../../../../core/layout/notification/notification.service';
 
 @Component({
   selector: 'app-users-list-page',
@@ -14,7 +15,11 @@ export class UsersListPageComponent implements OnInit {
   size = 20;
   users: Page<User> = emptyPage<User>();
 
-  constructor(private usersService: UsersService, private router: Router) {}
+  constructor(
+    private usersService: UsersService,
+    private router: Router,
+    private notificationService: NotificationService
+  ) {}
 
   ngOnInit() {
     this.fetchUsers();
@@ -27,5 +32,14 @@ export class UsersListPageComponent implements OnInit {
   onPageChange(page: number) {
     this.page = page - 1;
     this.fetchUsers();
+  }
+
+  onDelete(user: User) {
+    this.usersService
+      .deleteByUid(user.uid)
+      .subscribe(
+        () => this.fetchUsers(),
+        error => this.notificationService.error(error.error.detail)
+      );
   }
 }

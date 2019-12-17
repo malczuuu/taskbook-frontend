@@ -15,11 +15,21 @@
       <td>{{ user.email }}</td>
       <td>{{ user.first_name }}</td>
       <td>{{ user.last_name }}</td>
-      <td>{{ user.role }}</td>
+      <td>
+        <label for="user-role-select-{{ user.uid }}" class="sr-only">Role</label>
+        <select
+          id="user-role-select-{{ user.uid }}"
+          class="form-control form-control-sm"
+          [value]="user.role"
+        >
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+      </td>
       <td class="text-right">
-        <a class="btn btn-sm btn-outline-primary" [routerLink]="'/admin/users/' + user.uid">
-          Browse
-        </a>
+        <button class="btn btn-sm btn-outline-danger" (click)="userDeleteClick(user)">
+          Delete
+        </button>
       </td>
     </tr>
   </tbody>

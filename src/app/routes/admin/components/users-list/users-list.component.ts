@@ -16,11 +16,18 @@ export class UsersListComponent {
   @Output()
   browse: EventEmitter<User> = new EventEmitter<User>();
 
+  @Output()
+  delete: EventEmitter<User> = new EventEmitter<User>();
+
   onBrowseClick(user: User) {
     this.browse.emit(user);
   }
 
   indexOf(index: number): number {
     return index + this.offset;
+  }
+
+  userDeleteClick(user: User) {
+    this.delete.emit(user);
   }
 }

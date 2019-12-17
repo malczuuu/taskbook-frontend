@@ -9,7 +9,11 @@
   [disabled]="users.total_pages === 1"
 ></ngb-pagination>
 
-<app-users-list [users]="users.content" [offset]="size * page + 1"></app-users-list>
+<app-users-list
+  [users]="users.content"
+  [offset]="size * page + 1"
+  (delete)="onDelete($event)"
+></app-users-list>
 
 <ngb-pagination
   class="d-flex justify-content-end"
