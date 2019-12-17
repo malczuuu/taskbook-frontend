@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Account, AccountUpdate, PasswordUpdate } from '../../../../core/api/account.model';
 import { AccountService } from '../../../../core/api/account.service';
 import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcrumbs.service';
+import { NotificationService } from '../../../../core/layout/notification/notification.service';
 
 @Component({
   selector: 'app-account-page',
@@ -17,7 +18,8 @@ export class AccountPageComponent implements OnInit, OnDestroy {
 
   constructor(
     private accountService: AccountService,
-    private breadcrumbsService: BreadcrumbsService
+    private breadcrumbsService: BreadcrumbsService,
+    private notificationService: NotificationService
   ) {}
 
   ngOnInit() {
@@ -51,7 +53,20 @@ export class AccountPageComponent implements OnInit, OnDestroy {
       first_name: this.accountForm.get('firstName').value,
       last_name: this.accountForm.get('lastName').value
     };
-    this.accountService.updateAccount(update).subscribe(account => this.assignAccount(account));
+    this.accountService
+      .updateAccount(update)
+      .subscribe(
+        account => this.assignAccount(account),
+        error => this.notificationService.error(error.error.detail)
+      );
+  }
+
+  passwordSubmitValid(): boolean {
+    return (
+      this.passwordForm.valid &&
+      this.passwordForm.get('newPassword').value ===
+        this.passwordForm.get('confirmNewPassword').value
+    );
   }
 
   onPasswordSave() {
@@ -59,11 +74,14 @@ export class AccountPageComponent implements OnInit, OnDestroy {
       old_password: this.passwordForm.get('oldPassword').value,
       new_password: this.passwordForm.get('newPassword').value
     };
-    this.accountService.updatePassword(password).subscribe(() => {
-      this.passwordForm.get('oldPassword').setValue('');
-      this.passwordForm.get('newPassword').setValue('');
-      this.passwordForm.get('confirmNewPassword').setValue('');
-      this.changePasswordVisible = false;
-    });
+    this.accountService.updatePassword(password).subscribe(
+      () => {
+        this.passwordForm.get('oldPassword').setValue('');
+        this.passwordForm.get('newPassword').setValue('');
+        this.passwordForm.get('confirmNewPassword').setValue('');
+        this.changePasswordVisible = false;
+      },
+      error => this.notificationService.error(error.error.detail)
+    );
   }
 }

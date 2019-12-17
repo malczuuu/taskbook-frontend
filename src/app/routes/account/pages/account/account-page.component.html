@@ -125,7 +125,9 @@
         >
           Cancel
         </button>
-        <button type="submit" class="btn btn-outline-primary">Change password</button>
+        <button type="submit" class="btn btn-outline-primary" [disabled]="!passwordSubmitValid()">
+          Change password
+        </button>
       </div>
     </div>
   </form>
