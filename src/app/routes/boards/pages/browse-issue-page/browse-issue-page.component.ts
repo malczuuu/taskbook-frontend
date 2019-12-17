@@ -22,7 +22,7 @@ export class BrowseIssuePageComponent implements OnInit, OnDestroy {
   board: string;
   issue: Issue;
   form: FormGroup;
-  assignee: User;
+  assignee: User = null;
 
   comments: Page<Comment> = emptyPage<Comment>();
   commentsPageNumber = 0;
@@ -90,7 +90,7 @@ export class BrowseIssuePageComponent implements OnInit, OnDestroy {
       title: this.form.get('title').value,
       status: this.form.get('status').value,
       detail: this.form.get('description').value,
-      assignee: this.assignee !== null ? this.assignee.uid : null
+      assignee: this.assignee ? this.assignee.uid : null
     };
   }
 
