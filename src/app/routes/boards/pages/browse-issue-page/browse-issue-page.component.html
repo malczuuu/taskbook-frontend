@@ -61,6 +61,7 @@
   <hr />
 
   <app-comment-section
+    #commentSection
     [comments]="comments"
     (save)="onNewComment($event)"
     (pageChange)="onPageChange($event)"

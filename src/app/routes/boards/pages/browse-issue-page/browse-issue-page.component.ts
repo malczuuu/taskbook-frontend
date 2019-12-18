@@ -1,8 +1,9 @@
+import { CommentSectionComponent } from '../../components/comment-section/comment-section.component';
 import { NewComment } from './../../../../core/api/comments.model';
 import { Page, emptyPage } from '../../../../core/api/core.model';
 import { Comment } from '../../../../core/api/comments.model';
 import { CommentsService } from '../../../../core/api/comments.service';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
@@ -27,6 +28,9 @@ export class BrowseIssuePageComponent implements OnInit, OnDestroy {
   comments: Page<Comment> = emptyPage<Comment>();
   commentsPageNumber = 0;
   commentsPageSize = 20;
+
+  @ViewChild('commentSection', {static: false})
+  commentSection: CommentSectionComponent;
 
   constructor(
     private issuesService: IssuesService,
@@ -117,6 +121,7 @@ export class BrowseIssuePageComponent implements OnInit, OnDestroy {
 
   onNewComment(comment: NewComment) {
     this.commentsService.create(this.board, this.issue.uid, comment).subscribe(saved => {
+      this.commentSection.clear();
       this.commentsPageNumber = 0;
       this.fetchComments();
     });

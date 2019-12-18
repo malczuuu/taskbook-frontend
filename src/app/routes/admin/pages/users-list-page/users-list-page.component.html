@@ -4,7 +4,7 @@
   class="d-flex justify-content-end"
   (pageChange)="onPageChange($event)"
   [page]="users.number + 1"
-  [pageSize]="users.number_of_elements"
+  [pageSize]="users.size"
   [collectionSize]="users.total_elements"
   [disabled]="users.total_pages === 1"
 ></ngb-pagination>
@@ -19,7 +19,7 @@
   class="d-flex justify-content-end"
   (pageChange)="onPageChange($event)"
   [page]="users.number + 1"
-  [pageSize]="users.number_of_elements"
+  [pageSize]="users.size"
   [collectionSize]="users.total_elements"
   [disabled]="users.total_pages === 1"
 ></ngb-pagination>

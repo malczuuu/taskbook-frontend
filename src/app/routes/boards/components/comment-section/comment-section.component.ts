@@ -37,6 +37,10 @@ export class CommentSectionComponent implements OnInit {
     this.save.emit({ content: this.form.get('content').value.trim() });
   }
 
+  clear() {
+    this.form.get('content').setValue('');
+  }
+
   authorAsString(author: User): string {
     return `${this.nameOf(author)} <${author.email}>`.trim();
   }

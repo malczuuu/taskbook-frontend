@@ -2,7 +2,7 @@
   class="d-flex justify-content-end"
   (pageChange)="onPageChange($event)"
   [page]="issues.number + 1"
-  [pageSize]="issues.number_of_elements"
+  [pageSize]="issues.size"
   [collectionSize]="issues.total_elements"
   [disabled]="issues.total_pages === 1"
 ></ngb-pagination>
@@ -20,9 +20,12 @@
       <td>
         <a [routerLink]="issue.uid">[{{ issue.uid }}] {{ issue.title }}</a>
       </td>
+      <!--
       <td [title]="'Filter by ' + issue.status + ' status'">
-        <a routerLink="." [queryParams]="{ status: issue.status }">{{ issue.status }}</a>
+      <a routerLink="." [queryParams]="{ status: issue.status }">{{ issue.status }}</a>
       </td>
+      -->
+      <td><code>{{ issue.status }}</code></td>
       <td>
         <a *ngIf="issue.assignee" [routerLink]="'/users/' + issue.assignee.uid">
           {{ nameOf(issue.assignee) }}
@@ -40,7 +43,7 @@
   class="d-flex justify-content-end"
   (pageChange)="onPageChange($event)"
   [page]="issues.number + 1"
-  [pageSize]="issues.number_of_elements"
+  [pageSize]="issues.size"
   [collectionSize]="issues.total_elements"
   [disabled]="issues.total_pages === 1"
 ></ngb-pagination>

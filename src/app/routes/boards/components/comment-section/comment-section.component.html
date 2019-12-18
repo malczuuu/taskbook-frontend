@@ -30,7 +30,7 @@
   class="d-flex justify-content-end"
   (pageChange)="onPageChange($event)"
   [page]="comments.number + 1"
-  [pageSize]="comments.number_of_elements"
+  [pageSize]="comments.size"
   [collectionSize]="comments.total_elements"
   [disabled]="comments.total_pages === 1"
 ></ngb-pagination>
