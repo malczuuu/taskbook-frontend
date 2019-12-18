@@ -1,6 +1,9 @@
 <ng-template [ngIf]="accountForm">
   <form [formGroup]="accountForm" (ngSubmit)="onAccountSave()">
     <h3>Account Settings</h3>
+
+    <hr />
+
     <div class="form-group row" title="Account unique ID">
       <label for="account-form-uid" class="col-sm-3 col-md-2 col-form-label">UID</label>
       <div class="col-sm-9 col-md-10">

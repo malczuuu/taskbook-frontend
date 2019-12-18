@@ -1,1 +1,60 @@
-<pre *ngIf="user">{{ user | json }}</pre>
+<div *ngIf="user">
+  <h3>{{ userAsString() }}</h3>
+
+  <hr />
+
+  <div class="form-group row" title="User unique ID">
+    <label for="account-form-uid" class="col-sm-3 col-md-2 col-form-label">UID</label>
+    <div class="col-sm-9 col-md-10">
+      <input id="account-form-uid" type="text" class="form-control" [value]="user.uid" readonly />
+    </div>
+  </div>
+  <div class="form-group row" title="Account e-mail address">
+    <label for="account-form-email" class="col-sm-3 col-md-2 col-form-label">
+      E-mail address
+    </label>
+    <div class="col-sm-9 col-md-10">
+      <input
+        id="account-form-email"
+        type="text"
+        class="form-control"
+        [value]="user.email"
+        readonly
+      />
+    </div>
+  </div>
+  <div class="form-group row" title="Account role">
+    <label for="account-form-role" class="col-sm-3 col-md-2 col-form-label">Role</label>
+    <div class="col-sm-9 col-md-10">
+      <input id="account-form-role" type="text" class="form-control" [value]="user.role" readonly />
+    </div>
+  </div>
+  <div class="form-group row" title="Account first name">
+    <label for="account-form-first-name" class="col-sm-3 col-md-2 col-form-label">
+      First name
+    </label>
+    <div class="col-sm-9 col-md-10">
+      <input
+        id="account-form-first-name"
+        type="text"
+        class="form-control"
+        [value]="user.first_name"
+        readonly
+      />
+    </div>
+  </div>
+  <div class="form-group row" title="Account last name">
+    <label for="account-form-last-name" class="col-sm-3 col-md-2 col-form-label">
+      Last name
+    </label>
+    <div class="col-sm-9 col-md-10">
+      <input
+        id="account-form-last-name"
+        type="text"
+        class="form-control"
+        [value]="user.last_name"
+        readonly
+      />
+    </div>
+  </div>
+</div>

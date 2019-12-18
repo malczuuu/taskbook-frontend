@@ -36,21 +36,22 @@ export class UserInfoPageComponent implements OnInit, OnDestroy {
     this.breadcrumbsService.push({ url: `/users/${this.userUid}`, name: this.nameOfUser() });
   }
 
-  private nameOfUser(): string {
-    let name = `${this.user.first_name.trim()} ${this.user.last_name.trim()}`.trim();
-    if (name.length === 0) {
-      name = this.user.email;
-    }
-    if (name.length > 18) {
-      name = `${name.substring(0, 15)}...`;
-    }
-    return name;
-  }
-
   ngOnDestroy() {
     if (this.user !== null) {
       this.breadcrumbsService.pop();
       this.breadcrumbsService.pop();
     }
+  }
+
+  userAsString(): string {
+    if (this.user) {
+      return `${this.nameOfUser()} <${this.user.email}>`.trim();
+    } else {
+      return '(unassigned)';
+    }
+  }
+
+  private nameOfUser(): string {
+    return `${this.user.first_name} ${this.user.last_name}`.trim();
   }
 }
