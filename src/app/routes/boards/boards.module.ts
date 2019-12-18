@@ -13,6 +13,7 @@ import { IssuesListPageComponent } from './pages/issues-list-page/issues-list-pa
 import { BoardSettingsPageComponent } from './pages/board-settings-page/board-settings-page.component';
 import { BrowseIssuePageComponent } from './pages/browse-issue-page/browse-issue-page.component';
 import { SelectAssigneeModalComponent } from './components/select-assignee-modal/select-assignee-modal.component';
+import { CommentSectionComponent } from './components/comment-section/comment-section.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SelectAssigneeModalComponent } from './components/select-assignee-modal
     IssuesListPageComponent,
     BoardSettingsPageComponent,
     BrowseIssuePageComponent,
-    SelectAssigneeModalComponent
+    SelectAssigneeModalComponent,
+    CommentSectionComponent
   ],
   entryComponents: [SelectAssigneeModalComponent],
   imports: [CommonModule, BoardsRoutingModule, ReactiveFormsModule, CoreModule]

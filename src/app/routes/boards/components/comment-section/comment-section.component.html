@@ -1,0 +1,36 @@
+<div class="text-center">{{ comments.total_elements }} comments in total.</div>
+
+<form [formGroup]="form" (ngSubmit)="onSaveClick()">
+  <label for="comment-content-textarea">Add new comment</label>
+
+  <div class="form-group">
+    <textarea
+      id="comment-content-textarea"
+      class="form-control"
+      formControlName="content"
+    ></textarea>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-outline-primary" type="submit" [disabled]="!formValid()">Comment</button>
+  </div>
+</form>
+
+<div class="card" *ngFor="let comment of comments.content">
+  <div class="card-body">
+    <div>{{ comment.created_time }}</div>
+    <div>{{ comment.content }}</div>
+    <div class="text-right">
+      ~
+      <a [routerLink]="'/users/' + comment.author.uid">{{ authorAsString(comment.author) }}</a>
+    </div>
+  </div>
+</div>
+
+<ngb-pagination
+  class="d-flex justify-content-end"
+  (pageChange)="onPageChange($event)"
+  [page]="comments.number + 1"
+  [pageSize]="comments.number_of_elements"
+  [collectionSize]="comments.total_elements"
+  [disabled]="comments.total_pages === 1"
+></ngb-pagination>

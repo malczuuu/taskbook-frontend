@@ -1,3 +1,7 @@
+import { NewComment } from './../../../../core/api/comments.model';
+import { Page, emptyPage } from '../../../../core/api/core.model';
+import { Comment } from '../../../../core/api/comments.model';
+import { CommentsService } from '../../../../core/api/comments.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -20,8 +24,13 @@ export class BrowseIssuePageComponent implements OnInit, OnDestroy {
   form: FormGroup;
   assignee: User;
 
+  comments: Page<Comment> = emptyPage<Comment>();
+  commentsPageNumber = 0;
+  commentsPageSize = 20;
+
   constructor(
     private issuesService: IssuesService,
+    private commentsService: CommentsService,
     private route: ActivatedRoute,
     private breadcrumbsService: BreadcrumbsService,
     private notificationService: NotificationService,
@@ -53,6 +62,13 @@ export class BrowseIssuePageComponent implements OnInit, OnDestroy {
       status: new FormControl(this.issue.status),
       description: new FormControl(this.issue.detail)
     });
+    this.fetchComments();
+  }
+
+  private fetchComments() {
+    this.commentsService
+      .findAll(this.board, this.issue.uid, this.commentsPageNumber, this.commentsPageSize)
+      .subscribe(comments => (this.comments = comments));
   }
 
   ngOnDestroy() {
@@ -97,5 +113,17 @@ export class BrowseIssuePageComponent implements OnInit, OnDestroy {
 
   private nameOfAssignee(): string {
     return `${this.assignee.first_name} ${this.assignee.last_name}`.trim();
+  }
+
+  onNewComment(comment: NewComment) {
+    this.commentsService.create(this.board, this.issue.uid, comment).subscribe(saved => {
+      this.commentsPageNumber = 0;
+      this.fetchComments();
+    });
+  }
+
+  onPageChange(page: number) {
+    this.commentsPageNumber = page;
+    this.fetchComments();
   }
 }

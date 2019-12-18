@@ -57,4 +57,12 @@
     </div>
     <button type="submit" class="btn btn-outline-primary">Save</button>
   </form>
+
+  <hr />
+
+  <app-comment-section
+    [comments]="comments"
+    (save)="onNewComment($event)"
+    (pageChange)="onPageChange($event)"
+  ></app-comment-section>
 </ng-template>
