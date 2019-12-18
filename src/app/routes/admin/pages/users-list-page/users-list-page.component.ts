@@ -35,11 +35,25 @@ export class UsersListPageComponent implements OnInit {
   }
 
   onDelete(user: User) {
-    this.usersService
-      .deleteByUid(user.uid)
-      .subscribe(
-        () => this.fetchUsers(),
-        error => this.notificationService.error(error.error.detail)
-      );
+    this.usersService.deleteByUid(user.uid).subscribe(
+      () => {
+        this.fetchUsers();
+        this.notificationService.success('User deleted');
+      },
+      error => this.notificationService.problem(error.error)
+    );
+  }
+
+  onUpdate(user: User) {
+    this.usersService.update(user.uid, user).subscribe(
+      () => {
+        this.fetchUsers();
+        this.notificationService.success(`User role changed into ${user.role}`);
+      },
+      error => {
+        this.notificationService.problem(error.error);
+        this.fetchUsers();
+      }
+    );
   }
 }

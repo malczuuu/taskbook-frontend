@@ -29,7 +29,7 @@ export class BrowseIssuePageComponent implements OnInit, OnDestroy {
   commentsPageNumber = 0;
   commentsPageSize = 20;
 
-  @ViewChild('commentSection', {static: false})
+  @ViewChild('commentSection', { static: false })
   commentSection: CommentSectionComponent;
 
   constructor(

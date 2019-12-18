@@ -21,6 +21,8 @@
           id="user-role-select-{{ user.uid }}"
           class="form-control form-control-sm"
           [value]="user.role"
+          #roleSelect
+          (change)="onRoleSelect(user, roleSelect.value)"
         >
           <option value="user">User</option>
           <option value="admin">Admin</option>

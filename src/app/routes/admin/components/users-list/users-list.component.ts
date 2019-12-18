@@ -14,6 +14,9 @@ export class UsersListComponent {
   offset = 0;
 
   @Output()
+  update: EventEmitter<User> = new EventEmitter<User>();
+
+  @Output()
   browse: EventEmitter<User> = new EventEmitter<User>();
 
   @Output()
@@ -29,5 +32,15 @@ export class UsersListComponent {
 
   userDeleteClick(user: User) {
     this.delete.emit(user);
+  }
+
+  onRoleSelect(user: User, role: string) {
+    this.update.emit({
+      uid: user.uid,
+      email: user.email,
+      first_name: user.first_name,
+      last_name: user.last_name,
+      role
+    });
   }
 }

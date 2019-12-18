@@ -22,4 +22,8 @@ export class NotificationService {
   error(message: string, title: string = null) {
     this.toastrService.error(message, title);
   }
+
+  problem(problem) {
+    this.error(problem.detail ? problem.detail : problem.title);
+  }
 }

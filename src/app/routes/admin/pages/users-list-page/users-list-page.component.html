@@ -13,6 +13,7 @@
   [users]="users.content"
   [offset]="size * page + 1"
   (delete)="onDelete($event)"
+  (update)="onUpdate($event)"
 ></app-users-list>
 
 <ngb-pagination

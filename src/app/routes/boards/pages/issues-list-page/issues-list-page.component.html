@@ -25,7 +25,9 @@
       <a routerLink="." [queryParams]="{ status: issue.status }">{{ issue.status }}</a>
       </td>
       -->
-      <td><code>{{ issue.status }}</code></td>
+      <td>
+        <code>{{ issue.status }}</code>
+      </td>
       <td>
         <a *ngIf="issue.assignee" [routerLink]="'/users/' + issue.assignee.uid">
           {{ nameOf(issue.assignee) }}
