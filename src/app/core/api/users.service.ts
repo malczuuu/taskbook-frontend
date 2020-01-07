@@ -16,9 +16,9 @@ export class UsersService {
     });
   }
 
-  getAllByQuery(query: string, page: number = 0, size: number = 20): Observable<Page<User>> {
-    return this.http.get<Page<User>>('/api/users', {
-      params: { query, page: page.toString(), size: size.toString() }
+  getAllByQuery(query: string): Observable<Page<User>> {
+    return this.http.get<Page<User>>('/api/users/search', {
+      params: { query }
     });
   }
 
