@@ -9,10 +9,22 @@ const routes: Routes = [
     component: HomePageComponent,
     canActivate: [LoggedInGuard],
     children: [
-      { path: 'account', loadChildren: '../account/account.module#AccountModule' },
-      { path: 'admin', loadChildren: '../admin/admin.module#AdminModule' },
-      { path: 'boards', loadChildren: '../boards/boards.module#BoardsModule' },
-      { path: 'users', loadChildren: '../users/users.module#UsersModule' }
+      {
+        path: 'account',
+        loadChildren: () => import('../account/account.module').then(m => m.AccountModule)
+      },
+      {
+        path: 'admin',
+        loadChildren: () => import('../admin/admin.module').then(m => m.AdminModule)
+      },
+      {
+        path: 'boards',
+        loadChildren: () => import('../boards/boards.module').then(m => m.BoardsModule)
+      },
+      {
+        path: 'users',
+        loadChildren: () => import('../users/users.module').then(m => m.UsersModule)
+      }
     ]
   }
 ];
