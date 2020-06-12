@@ -6,7 +6,7 @@ COPY . ./
 RUN npm install && npm run build
 
 
-FROM nginx:1.17.5
+FROM nginx:1.19.0-alpine
 
 WORKDIR /usr/share/nginx/html
 
