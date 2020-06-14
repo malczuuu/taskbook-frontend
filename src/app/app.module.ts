@@ -8,6 +8,11 @@ import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { JwtModule } from '@auth0/angular-jwt';
+
+export function tokenGetter() {
+  return localStorage.getItem('session.token');
+}
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,8 +25,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ToastrModule.forRoot(),
     BoardsModule,
     NgbModule,
+    JwtModule.forRoot({
+      config: { tokenGetter }
+    })
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+}
