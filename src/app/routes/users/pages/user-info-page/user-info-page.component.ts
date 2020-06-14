@@ -7,7 +7,7 @@ import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcru
 @Component({
   selector: 'app-user-info-page',
   templateUrl: './user-info-page.component.html',
-  styleUrls: ['./user-info-page.component.scss']
+  styleUrls: ['./user-info-page.component.scss'],
 })
 export class UserInfoPageComponent implements OnInit, OnDestroy {
   userUid = '';
@@ -20,14 +20,14 @@ export class UserInfoPageComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       this.userUid = params.user;
       this.fetchUser();
     });
   }
 
   fetchUser() {
-    this.usersService.getOne(this.userUid).subscribe(user => this.assignUser(user));
+    this.usersService.getOne(this.userUid).subscribe((user) => this.assignUser(user));
   }
 
   private assignUser(user: User) {

@@ -17,7 +17,7 @@ import { SelectAssigneeModalComponent } from '../../components/select-assignee-m
 @Component({
   selector: 'app-browse-issue-page',
   templateUrl: './browse-issue-page.component.html',
-  styleUrls: ['./browse-issue-page.component.scss']
+  styleUrls: ['./browse-issue-page.component.scss'],
 })
 export class BrowseIssuePageComponent implements OnInit, OnDestroy {
   board: string;
@@ -42,18 +42,18 @@ export class BrowseIssuePageComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.route.parent.parent.params.subscribe(parentParams => {
+    this.route.parent.parent.params.subscribe((parentParams) => {
       this.board = parentParams.board;
-      this.route.params.subscribe(params => this.fetchIssue(params.issue));
+      this.route.params.subscribe((params) => this.fetchIssue(params.issue));
     });
   }
 
   private fetchIssue(uid: string) {
-    this.issuesService.getOne(this.board, uid).subscribe(issue => {
+    this.issuesService.getOne(this.board, uid).subscribe((issue) => {
       this.onIssueFetched(issue);
       this.breadcrumbsService.push({
         url: `/boards/${this.board}/issues/${this.issue.uid}`,
-        name: this.issue.uid
+        name: this.issue.uid,
       });
     });
   }
@@ -64,7 +64,7 @@ export class BrowseIssuePageComponent implements OnInit, OnDestroy {
     this.form = new FormGroup({
       title: new FormControl(this.issue.title),
       status: new FormControl(this.issue.status),
-      description: new FormControl(this.issue.detail)
+      description: new FormControl(this.issue.detail),
     });
     this.fetchComments();
   }
@@ -72,7 +72,7 @@ export class BrowseIssuePageComponent implements OnInit, OnDestroy {
   private fetchComments() {
     this.commentsService
       .findAll(this.board, this.issue.uid, this.commentsPageNumber, this.commentsPageSize)
-      .subscribe(comments => (this.comments = comments));
+      .subscribe((comments) => (this.comments = comments));
   }
 
   ngOnDestroy() {
@@ -81,11 +81,11 @@ export class BrowseIssuePageComponent implements OnInit, OnDestroy {
 
   onSave() {
     this.issuesService.update(this.board, this.issue.uid, this.readForm()).subscribe(
-      issue => {
+      (issue) => {
         this.notificationService.success('Issue updated successfully');
         this.issue = issue;
       },
-      error => this.notificationService.error(error.error.detail || error.error.title)
+      (error) => this.notificationService.error(error.error.detail || error.error.title)
     );
   }
 
@@ -94,13 +94,16 @@ export class BrowseIssuePageComponent implements OnInit, OnDestroy {
       title: this.form.get('title').value,
       status: this.form.get('status').value,
       detail: this.form.get('description').value,
-      assignee: this.assignee ? this.assignee.uid : null
+      assignee: this.assignee ? this.assignee.uid : null,
     };
   }
 
   selectAssignee() {
     const modal: NgbModalRef = this.modalService.open(SelectAssigneeModalComponent);
-    modal.result.then(result => this.assign(result), () => {});
+    modal.result.then(
+      (result) => this.assign(result),
+      () => {}
+    );
   }
 
   private assign(assignee: User) {
@@ -120,7 +123,7 @@ export class BrowseIssuePageComponent implements OnInit, OnDestroy {
   }
 
   onNewComment(comment: NewComment) {
-    this.commentsService.create(this.board, this.issue.uid, comment).subscribe(saved => {
+    this.commentsService.create(this.board, this.issue.uid, comment).subscribe((saved) => {
       this.commentSection.clear();
       this.commentsPageNumber = 0;
       this.fetchComments();

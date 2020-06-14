@@ -6,7 +6,7 @@ import { emptyPage, Page } from '../../../../core/api/core.model';
 @Component({
   selector: 'app-boards-list-page',
   templateUrl: './boards-list-page.component.html',
-  styleUrls: ['./boards-list-page.component.scss']
+  styleUrls: ['./boards-list-page.component.scss'],
 })
 export class BoardsListPageComponent implements OnInit {
   boards: Page<Board> = emptyPage();
@@ -14,7 +14,7 @@ export class BoardsListPageComponent implements OnInit {
   constructor(private boardsService: BoardsService) {}
 
   ngOnInit() {
-    this.boardsService.getAll().subscribe(boards => (this.boards = boards));
+    this.boardsService.getAll().subscribe((boards) => (this.boards = boards));
   }
 
   displayNameOf(board: Board): string {

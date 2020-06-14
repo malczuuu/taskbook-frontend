@@ -3,7 +3,7 @@ import { Observable, Subject } from 'rxjs';
 import { Breadcrumb } from './breadcrumbs.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BreadcrumbsService {
   private content: Breadcrumb[] = [];

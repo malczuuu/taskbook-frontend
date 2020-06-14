@@ -4,7 +4,7 @@ import { User } from '../../../../core/api/users.model';
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
-  styleUrls: ['./users-list.component.scss']
+  styleUrls: ['./users-list.component.scss'],
 })
 export class UsersListComponent {
   @Input()
@@ -40,7 +40,7 @@ export class UsersListComponent {
       email: user.email,
       first_name: user.first_name,
       last_name: user.last_name,
-      role
+      role,
     });
   }
 }

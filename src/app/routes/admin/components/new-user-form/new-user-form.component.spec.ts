@@ -8,7 +8,7 @@ describe('NewUserFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [NewUserFormComponent]
+      declarations: [NewUserFormComponent],
     }).compileComponents();
   }));
 

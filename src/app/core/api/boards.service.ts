@@ -5,14 +5,14 @@ import { Board, BoardUpdate } from './boards.model';
 import { Page } from './core.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BoardsService {
   constructor(private http: HttpClient) {}
 
   getAll(page: number = 0, size: number = 20): Observable<Page<Board>> {
     return this.http.get<Page<Board>>('/api/boards', {
-      params: { page: page.toString(), size: size.toString() }
+      params: { page: page.toString(), size: size.toString() },
     });
   }
 

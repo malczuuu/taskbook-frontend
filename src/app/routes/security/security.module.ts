@@ -7,6 +7,6 @@ import { SecurityRoutingModule } from './security-routing.module';
 
 @NgModule({
   declarations: [LoginPageComponent, LogoutPageComponent],
-  imports: [CommonModule, SecurityRoutingModule, ReactiveFormsModule]
+  imports: [CommonModule, SecurityRoutingModule, ReactiveFormsModule],
 })
 export class SecurityModule {}

@@ -6,14 +6,14 @@ import { Page } from './core.model';
 import { Issue, IssueUpdate, NewIssue } from './issues.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class IssuesService {
   constructor(private http: HttpClient) {}
 
   getAll(board: string, page: number = 0, size: number = 20): Observable<Page<Issue>> {
     return this.http.get<Page<Issue>>(`/api/boards/${board}/issues`, {
-      params: { page: page.toString(), size: size.toString() }
+      params: { page: page.toString(), size: size.toString() },
     });
   }
 
@@ -24,7 +24,7 @@ export class IssuesService {
   count(board: string): Observable<number> {
     return this.http
       .get<Page<Issue>>(`/api/boards/${board}/issues`, { params: { page: '0', size: '1' } })
-      .pipe(map(page => page.total_elements));
+      .pipe(map((page) => page.total_elements));
   }
 
   create(board: string, issue: NewIssue): Observable<Issue> {

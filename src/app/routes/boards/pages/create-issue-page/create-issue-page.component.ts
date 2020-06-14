@@ -9,7 +9,7 @@ import { NotificationService } from '../../../../core/layout/notification/notifi
 @Component({
   selector: 'app-create-issue-page',
   templateUrl: './create-issue-page.component.html',
-  styleUrls: ['./create-issue-page.component.scss']
+  styleUrls: ['./create-issue-page.component.scss'],
 })
 export class CreateIssuePageComponent implements OnInit, OnDestroy {
   board: string;
@@ -24,13 +24,13 @@ export class CreateIssuePageComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.route.parent.parent.params.subscribe(params => {
+    this.route.parent.parent.params.subscribe((params) => {
       this.board = params.board;
       this.breadcrumbsService.push({ url: `/boards/${this.board}/issues/create`, name: 'Create' });
     });
     this.form = new FormGroup({
       title: new FormControl('', [Validators.required]),
-      description: new FormControl('')
+      description: new FormControl(''),
     });
   }
 
@@ -39,12 +39,10 @@ export class CreateIssuePageComponent implements OnInit, OnDestroy {
   }
 
   onSave() {
-    this.issueService
-      .create(this.board, this.readNewIssue())
-      .subscribe(
-        issue => this.router.navigate([`/boards/${this.board}/issues`]),
-        error => this.notificationService.error(error.error.detail || error.error.title)
-      );
+    this.issueService.create(this.board, this.readNewIssue()).subscribe(
+      (issue) => this.router.navigate([`/boards/${this.board}/issues`]),
+      (error) => this.notificationService.error(error.error.detail || error.error.title)
+    );
   }
 
   private readNewIssue(): NewIssue {
@@ -52,7 +50,7 @@ export class CreateIssuePageComponent implements OnInit, OnDestroy {
       title: this.form.get('title').value,
       detail: this.form.get('description').value,
       status: 'to_do',
-      assignee: null
+      assignee: null,
     };
   }
 }

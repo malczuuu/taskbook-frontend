@@ -11,8 +11,8 @@ export class HttpSessionInterceptor implements HttpInterceptor {
     if (this.securityService.isAuthenticated()) {
       request = request.clone({
         setHeaders: {
-          Authorization: `Bearer ${this.securityService.getSession()}`
-        }
+          Authorization: `Bearer ${this.securityService.getSession()}`,
+        },
       });
     }
     return next.handle(request);

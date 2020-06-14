@@ -4,6 +4,6 @@ import { BreadcrumbsService } from './core/layout/breadcrumbs/breadcrumbs.servic
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {}

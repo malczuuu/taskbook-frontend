@@ -8,7 +8,7 @@ import { User } from '../../../../core/api/users.model';
 @Component({
   selector: 'app-issues-list-page',
   templateUrl: './issues-list-page.component.html',
-  styleUrls: ['./issues-list-page.component.scss']
+  styleUrls: ['./issues-list-page.component.scss'],
 })
 export class IssuesListPageComponent implements OnInit {
   issues: Page<Issue> = emptyPage<Issue>();
@@ -19,7 +19,7 @@ export class IssuesListPageComponent implements OnInit {
   constructor(private issuesService: IssuesService, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.route.parent.parent.params.subscribe(params => {
+    this.route.parent.parent.params.subscribe((params) => {
       this.board = params.board;
       this.fetchIssues();
     });
@@ -28,7 +28,7 @@ export class IssuesListPageComponent implements OnInit {
   private fetchIssues() {
     this.issuesService
       .getAll(this.board, this.page, this.size)
-      .subscribe(issues => (this.issues = issues));
+      .subscribe((issues) => (this.issues = issues));
   }
 
   nameOf(user: User): string {

@@ -4,7 +4,7 @@ import { LoggedOutGuard } from './logged-out.guard';
 describe('LoggedOutGuard', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [LoggedOutGuard]
+      providers: [LoggedOutGuard],
     });
   });
 

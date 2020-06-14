@@ -5,7 +5,7 @@ import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcru
 @Component({
   selector: 'app-issues-page',
   templateUrl: './issues-page.component.html',
-  styleUrls: ['./issues-page.component.scss']
+  styleUrls: ['./issues-page.component.scss'],
 })
 export class IssuesPageComponent implements OnInit, OnDestroy {
   board: string;
@@ -13,7 +13,7 @@ export class IssuesPageComponent implements OnInit, OnDestroy {
   constructor(private breadcrumbsService: BreadcrumbsService, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.route.parent.params.subscribe(params => {
+    this.route.parent.params.subscribe((params) => {
       this.board = params.board;
       this.breadcrumbsService.push({ url: `/boards/${this.board}/issues`, name: 'Issues' });
     });

@@ -8,11 +8,11 @@ import { LogoutPageComponent } from './pages/logout-page/logout-page.component';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginPageComponent, canActivate: [LoggedOutGuard] },
-  { path: 'logout', component: LogoutPageComponent, canActivate: [LoggedInGuard] }
+  { path: 'logout', component: LogoutPageComponent, canActivate: [LoggedInGuard] },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class SecurityRoutingModule {}

@@ -8,7 +8,7 @@ import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcru
 @Component({
   selector: 'app-board-settings-page',
   templateUrl: './board-settings-page.component.html',
-  styleUrls: ['./board-settings-page.component.scss']
+  styleUrls: ['./board-settings-page.component.scss'],
 })
 export class BoardSettingsPageComponent implements OnInit, OnDestroy {
   private boardUid = '';
@@ -27,17 +27,17 @@ export class BoardSettingsPageComponent implements OnInit, OnDestroy {
     this.form = new FormGroup({
       uid: new FormControl('', [Validators.required]),
       name: new FormControl('', [Validators.required]),
-      description: new FormControl('')
+      description: new FormControl(''),
     });
 
-    this.route.parent.params.subscribe(params => {
+    this.route.parent.params.subscribe((params) => {
       this.boardUid = params.board;
       this.fetchBoard();
     });
   }
 
   private fetchBoard() {
-    this.boardsService.getOne(this.boardUid).subscribe(board => this.assignBoard(board));
+    this.boardsService.getOne(this.boardUid).subscribe((board) => this.assignBoard(board));
   }
 
   private assignBoard(board: Board) {
@@ -45,7 +45,7 @@ export class BoardSettingsPageComponent implements OnInit, OnDestroy {
     this.form = new FormGroup({
       uid: new FormControl(board.uid, [Validators.required]),
       name: new FormControl(board.name, [Validators.required]),
-      description: new FormControl(board.description)
+      description: new FormControl(board.description),
     });
   }
 
@@ -57,8 +57,8 @@ export class BoardSettingsPageComponent implements OnInit, OnDestroy {
     this.boardsService
       .update(this.boardUid, {
         name: this.form.get('name').value,
-        description: this.form.get('description').value
+        description: this.form.get('description').value,
       })
-      .subscribe(board => this.assignBoard(board));
+      .subscribe((board) => this.assignBoard(board));
   }
 }

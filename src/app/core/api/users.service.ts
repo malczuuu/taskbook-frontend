@@ -5,20 +5,20 @@ import { Page } from './core.model';
 import { NewUser, User } from './users.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsersService {
   constructor(private http: HttpClient) {}
 
   getAll(page: number = 0, size: number = 20): Observable<Page<User>> {
     return this.http.get<Page<User>>('/api/users', {
-      params: { page: page.toString(), size: size.toString() }
+      params: { page: page.toString(), size: size.toString() },
     });
   }
 
   getAllByQuery(query: string): Observable<Page<User>> {
     return this.http.get<Page<User>>('/api/users/search', {
-      params: { query }
+      params: { query },
     });
   }
 

@@ -7,7 +7,7 @@ describe('BrowseBoardPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [BrowseBoardPageComponent]
+      declarations: [BrowseBoardPageComponent],
     }).compileComponents();
   }));
 

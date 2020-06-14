@@ -14,6 +14,6 @@ export function emptyPage<T>(): Page<T> {
     size: 0,
     number_of_elements: 0,
     total_elements: 0,
-    total_pages: 1
+    total_pages: 1,
   };
 }

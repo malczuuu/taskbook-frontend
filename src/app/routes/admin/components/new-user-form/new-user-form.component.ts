@@ -5,7 +5,7 @@ import { NewUser } from '../../../../core/api/users.model';
 @Component({
   selector: 'app-new-user-form',
   templateUrl: './new-user-form.component.html',
-  styleUrls: ['./new-user-form.component.scss']
+  styleUrls: ['./new-user-form.component.scss'],
 })
 export class NewUserFormComponent implements OnInit {
   form: FormGroup;
@@ -22,7 +22,7 @@ export class NewUserFormComponent implements OnInit {
       password: new FormControl('', [Validators.required]),
       confirmPassword: new FormControl('', [Validators.required]),
       firstName: new FormControl(''),
-      lastName: new FormControl('')
+      lastName: new FormControl(''),
     });
   }
 
@@ -41,7 +41,7 @@ export class NewUserFormComponent implements OnInit {
       password: this.form.get('password').value,
       role: this.form.get('role').value,
       first_name: this.form.get('firstName').value,
-      last_name: this.form.get('lastName').value
+      last_name: this.form.get('lastName').value,
     });
   }
 }

@@ -28,18 +28,18 @@ const routes: Routes = [
             children: [
               { path: '', component: IssuesListPageComponent, pathMatch: 'full' },
               { path: 'create', component: CreateIssuePageComponent },
-              { path: ':issue', component: BrowseIssuePageComponent }
-            ]
+              { path: ':issue', component: BrowseIssuePageComponent },
+            ],
           },
-          { path: 'settings', component: BoardSettingsPageComponent }
-        ]
-      }
-    ]
-  }
+          { path: 'settings', component: BoardSettingsPageComponent },
+        ],
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class BoardsRoutingModule {}

@@ -4,6 +4,6 @@ import { RoutesRoutingModule } from './routes-routing.module';
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, RoutesRoutingModule]
+  imports: [CommonModule, RoutesRoutingModule],
 })
 export class RoutesModule {}

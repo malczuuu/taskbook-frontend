@@ -8,7 +8,7 @@ import { NotificationService } from '../../../../core/layout/notification/notifi
 @Component({
   selector: 'app-users-list-page',
   templateUrl: './users-list-page.component.html',
-  styleUrls: ['./users-list-page.component.scss']
+  styleUrls: ['./users-list-page.component.scss'],
 })
 export class UsersListPageComponent implements OnInit {
   page = 0;
@@ -26,7 +26,7 @@ export class UsersListPageComponent implements OnInit {
   }
 
   private fetchUsers() {
-    this.usersService.getAll(this.page, this.size).subscribe(users => (this.users = users));
+    this.usersService.getAll(this.page, this.size).subscribe((users) => (this.users = users));
   }
 
   onPageChange(page: number) {
@@ -40,7 +40,7 @@ export class UsersListPageComponent implements OnInit {
         this.fetchUsers();
         this.notificationService.success('User deleted');
       },
-      error => this.notificationService.problem(error.error)
+      (error) => this.notificationService.problem(error.error)
     );
   }
 
@@ -50,7 +50,7 @@ export class UsersListPageComponent implements OnInit {
         this.fetchUsers();
         this.notificationService.success(`User role changed into ${user.role}`);
       },
-      error => {
+      (error) => {
         this.notificationService.problem(error.error);
         this.fetchUsers();
       }

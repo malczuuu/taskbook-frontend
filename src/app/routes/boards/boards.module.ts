@@ -27,9 +27,9 @@ import { CommentSectionComponent } from './components/comment-section/comment-se
     BoardSettingsPageComponent,
     BrowseIssuePageComponent,
     SelectAssigneeModalComponent,
-    CommentSectionComponent
+    CommentSectionComponent,
   ],
   entryComponents: [SelectAssigneeModalComponent],
-  imports: [CommonModule, BoardsRoutingModule, ReactiveFormsModule, CoreModule]
+  imports: [CommonModule, BoardsRoutingModule, ReactiveFormsModule, CoreModule],
 })
 export class BoardsModule {}

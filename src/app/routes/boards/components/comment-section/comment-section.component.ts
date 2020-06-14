@@ -7,7 +7,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 @Component({
   selector: 'app-comment-section',
   templateUrl: './comment-section.component.html',
-  styleUrls: ['./comment-section.component.scss']
+  styleUrls: ['./comment-section.component.scss'],
 })
 export class CommentSectionComponent implements OnInit {
   @Input()
@@ -25,7 +25,7 @@ export class CommentSectionComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
-      content: new FormControl('', [Validators.required])
+      content: new FormControl('', [Validators.required]),
     });
   }
 

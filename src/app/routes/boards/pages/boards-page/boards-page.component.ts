@@ -4,7 +4,7 @@ import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcru
 @Component({
   selector: 'app-boards-page',
   templateUrl: './boards-page.component.html',
-  styleUrls: ['./boards-page.component.scss']
+  styleUrls: ['./boards-page.component.scss'],
 })
 export class BoardsPageComponent implements OnInit, OnDestroy {
   constructor(private breadcrumbsService: BreadcrumbsService) {}

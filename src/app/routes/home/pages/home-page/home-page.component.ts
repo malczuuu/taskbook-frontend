@@ -7,7 +7,7 @@ import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcru
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+  styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit, OnDestroy {
   @HostBinding('class')
@@ -23,7 +23,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.accountService.getAccount().subscribe(account => (this.account = account));
+    this.accountService.getAccount().subscribe((account) => (this.account = account));
     this.breadcrumbsService.push({ url: '/', name: 'Home' });
     const now = moment();
 

@@ -4,13 +4,13 @@ import {
   CanActivate,
   Router,
   RouterStateSnapshot,
-  UrlTree
+  UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { SecurityService } from '../api/security.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoggedOutGuard implements CanActivate {
   constructor(private securityService: SecurityService, private router: Router) {}

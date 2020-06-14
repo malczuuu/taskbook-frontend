@@ -6,6 +6,6 @@ import { UsersRoutingModule } from './users-routing.module';
 
 @NgModule({
   declarations: [UserInfoPageComponent],
-  imports: [CommonModule, UsersRoutingModule, CoreModule]
+  imports: [CommonModule, UsersRoutingModule, CoreModule],
 })
 export class UsersModule {}

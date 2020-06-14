@@ -7,7 +7,7 @@ describe('IssuesListPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [IssuesListPageComponent]
+      declarations: [IssuesListPageComponent],
     }).compileComponents();
   }));
 

@@ -11,6 +11,6 @@ import { MenuComponent } from './layout/menu/menu.component';
   declarations: [BreadcrumbsComponent, MenuComponent],
   imports: [CommonModule, HttpClientModule, RouterModule, NgbPaginationModule],
   exports: [BreadcrumbsComponent, MenuComponent, NgbPaginationModule],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpSessionInterceptor, multi: true }]
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpSessionInterceptor, multi: true }],
 })
 export class CoreModule {}

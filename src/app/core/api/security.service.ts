@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Credentials, Session } from './security.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SecurityService {
   private readonly sessionTokenKey = 'session.token';

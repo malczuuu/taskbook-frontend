@@ -8,7 +8,7 @@ import { UsersService } from '../../../../core/api/users.service';
 @Component({
   selector: 'app-select-assignee-modal',
   templateUrl: './select-assignee-modal.component.html',
-  styleUrls: ['./select-assignee-modal.component.scss']
+  styleUrls: ['./select-assignee-modal.component.scss'],
 })
 export class SelectAssigneeModalComponent implements OnInit {
   users: Page<User> = emptyPage();
@@ -23,7 +23,7 @@ export class SelectAssigneeModalComponent implements OnInit {
   }
 
   fetch() {
-    this.usersService.getAllByQuery(this.query).subscribe(users => (this.users = users));
+    this.usersService.getAllByQuery(this.query).subscribe((users) => (this.users = users));
   }
 
   onSubmit() {

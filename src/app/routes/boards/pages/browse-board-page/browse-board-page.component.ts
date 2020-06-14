@@ -9,7 +9,7 @@ import { MenuItem } from '../../../../core/layout/menu/menu.model';
 @Component({
   selector: 'app-browse-board-page',
   templateUrl: './browse-board-page.component.html',
-  styleUrls: ['./browse-board-page.component.scss']
+  styleUrls: ['./browse-board-page.component.scss'],
 })
 export class BrowseBoardPageComponent implements OnInit, OnDestroy {
   menu: MenuItem[] = [{ url: 'issues', name: 'Issues' }];
@@ -24,17 +24,18 @@ export class BrowseBoardPageComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.accountService.getAccount().subscribe(account => {
+    this.accountService.getAccount().subscribe((account) => {
       if (account.role === 'admin') {
         this.menu.push({ url: 'settings', name: 'Settings' });
       } else {
         this.menu.push({ url: 'settings', name: 'Settings', disabled: true });
       }
     });
-    this.route.params.subscribe(params =>
-      this.boardsService
-        .getOne(params.board)
-        .subscribe(board => this.assignBoard(board), error => this.router.navigate(['/boards']))
+    this.route.params.subscribe((params) =>
+      this.boardsService.getOne(params.board).subscribe(
+        (board) => this.assignBoard(board),
+        (error) => this.router.navigate(['/boards'])
+      )
     );
   }
 

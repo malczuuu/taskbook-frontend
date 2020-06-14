@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Account, AccountUpdate, PasswordUpdate } from './account.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AccountService {
   constructor(private http: HttpClient) {}

@@ -4,7 +4,7 @@ import { LoggedInGuard } from './logged-in.guard';
 describe('LoggedInGuard', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [LoggedInGuard]
+      providers: [LoggedInGuard],
     });
   });
 

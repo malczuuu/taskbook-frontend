@@ -6,7 +6,7 @@ import { BreadcrumbsService } from './breadcrumbs.service';
 @Component({
   selector: 'app-breadcrumbs',
   templateUrl: './breadcrumbs.component.html',
-  styleUrls: ['./breadcrumbs.component.scss']
+  styleUrls: ['./breadcrumbs.component.scss'],
 })
 export class BreadcrumbsComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
@@ -17,13 +17,13 @@ export class BreadcrumbsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     const subscription = this.breadcrumbsService
       .getBreadcrumbs()
-      .subscribe(breadcrumbs => (this.breadcrumbs = breadcrumbs));
+      .subscribe((breadcrumbs) => (this.breadcrumbs = breadcrumbs));
     this.subscriptions.push(subscription);
     this.breadcrumbs = this.breadcrumbsService.peek();
   }
 
   ngOnDestroy() {
-    this.subscriptions.forEach(subscription => subscription.unsubscribe());
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
     this.subscriptions = [];
   }
 

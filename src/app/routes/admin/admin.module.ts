@@ -19,8 +19,8 @@ import { UsersPageComponent } from './pages/users-page/users-page.component';
     UsersListPageComponent,
     CreateUserPageComponent,
     UsersListComponent,
-    NewUserFormComponent
+    NewUserFormComponent,
   ],
-  imports: [CommonModule, AdminRoutingModule, ReactiveFormsModule, CoreModule]
+  imports: [CommonModule, AdminRoutingModule, ReactiveFormsModule, CoreModule],
 })
 export class AdminModule {}

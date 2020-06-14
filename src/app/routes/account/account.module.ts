@@ -6,6 +6,6 @@ import { AccountPageComponent } from './pages/account/account-page.component';
 
 @NgModule({
   declarations: [AccountPageComponent],
-  imports: [CommonModule, AccountRoutingModule, ReactiveFormsModule]
+  imports: [CommonModule, AccountRoutingModule, ReactiveFormsModule],
 })
 export class AccountModule {}

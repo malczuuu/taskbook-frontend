@@ -7,7 +7,7 @@ describe('CreateUserPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CreateUserPageComponent]
+      declarations: [CreateUserPageComponent],
     }).compileComponents();
   }));
 

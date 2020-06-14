@@ -4,11 +4,11 @@ import { UserInfoPageComponent } from './pages/user-info-page/user-info-page.com
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
-  { path: ':user', component: UserInfoPageComponent }
+  { path: ':user', component: UserInfoPageComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class UsersRoutingModule {}

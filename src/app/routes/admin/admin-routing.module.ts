@@ -18,15 +18,15 @@ const routes: Routes = [
         children: [
           { path: '', component: UsersListPageComponent, pathMatch: 'full' },
           { path: 'create', component: CreateUserPageComponent },
-          { path: ':uid', component: BrowseUserPageComponent }
-        ]
-      }
-    ]
-  }
+          { path: ':uid', component: BrowseUserPageComponent },
+        ],
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AdminRoutingModule {}

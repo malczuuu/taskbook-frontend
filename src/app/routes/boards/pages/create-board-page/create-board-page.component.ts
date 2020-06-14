@@ -9,7 +9,7 @@ import { NotificationService } from '../../../../core/layout/notification/notifi
 @Component({
   selector: 'app-create-board-page',
   templateUrl: './create-board-page.component.html',
-  styleUrls: ['./create-board-page.component.scss']
+  styleUrls: ['./create-board-page.component.scss'],
 })
 export class CreateBoardPageComponent implements OnInit, OnDestroy {
   form: FormGroup;
@@ -26,7 +26,7 @@ export class CreateBoardPageComponent implements OnInit, OnDestroy {
     this.form = new FormGroup({
       uid: new FormControl('', [Validators.required]),
       name: new FormControl('', [Validators.required]),
-      description: new FormControl('')
+      description: new FormControl(''),
     });
   }
 
@@ -35,19 +35,17 @@ export class CreateBoardPageComponent implements OnInit, OnDestroy {
   }
 
   onSave() {
-    this.boardsService
-      .create(this.readBoard())
-      .subscribe(
-        board => this.router.navigate(['/boards', board.uid]),
-        error => this.notificationService.error(error.error.detail || error.error.title)
-      );
+    this.boardsService.create(this.readBoard()).subscribe(
+      (board) => this.router.navigate(['/boards', board.uid]),
+      (error) => this.notificationService.error(error.error.detail || error.error.title)
+    );
   }
 
   private readBoard(): Board {
     return {
       uid: this.form.get('uid').value,
       name: this.form.get('name').value,
-      description: this.form.get('description').value
+      description: this.form.get('description').value,
     };
   }
 }

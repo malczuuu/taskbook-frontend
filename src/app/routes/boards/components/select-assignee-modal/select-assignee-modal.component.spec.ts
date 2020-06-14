@@ -7,7 +7,7 @@ describe('SelectAssigneeModalComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [SelectAssigneeModalComponent]
+      declarations: [SelectAssigneeModalComponent],
     }).compileComponents();
   }));
 

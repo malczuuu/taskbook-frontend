@@ -8,7 +8,7 @@ import { NotificationService } from '../../../../core/layout/notification/notifi
 @Component({
   selector: 'app-account-page',
   templateUrl: './account-page.component.html',
-  styleUrls: ['./account-page.component.scss']
+  styleUrls: ['./account-page.component.scss'],
 })
 export class AccountPageComponent implements OnInit, OnDestroy {
   account: Account;
@@ -23,12 +23,12 @@ export class AccountPageComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.accountService.getAccount().subscribe(account => this.assignAccount(account));
+    this.accountService.getAccount().subscribe((account) => this.assignAccount(account));
     this.breadcrumbsService.push({ url: '/account', name: 'Account' });
     this.passwordForm = new FormGroup({
       oldPassword: new FormControl('', [Validators.required]),
       newPassword: new FormControl('', [Validators.required]),
-      confirmNewPassword: new FormControl('', [Validators.required])
+      confirmNewPassword: new FormControl('', [Validators.required]),
     });
   }
 
@@ -39,7 +39,7 @@ export class AccountPageComponent implements OnInit, OnDestroy {
       email: new FormControl(account.email, [Validators.required]),
       role: new FormControl(account.role, [Validators.required]),
       firstName: new FormControl(account.first_name),
-      lastName: new FormControl(account.last_name)
+      lastName: new FormControl(account.last_name),
     });
   }
 
@@ -51,14 +51,12 @@ export class AccountPageComponent implements OnInit, OnDestroy {
     const update: AccountUpdate = {
       email: this.accountForm.get('email').value,
       first_name: this.accountForm.get('firstName').value,
-      last_name: this.accountForm.get('lastName').value
+      last_name: this.accountForm.get('lastName').value,
     };
-    this.accountService
-      .updateAccount(update)
-      .subscribe(
-        account => this.assignAccount(account),
-        error => this.notificationService.error(error.error.detail)
-      );
+    this.accountService.updateAccount(update).subscribe(
+      (account) => this.assignAccount(account),
+      (error) => this.notificationService.error(error.error.detail)
+    );
   }
 
   passwordSubmitValid(): boolean {
@@ -72,7 +70,7 @@ export class AccountPageComponent implements OnInit, OnDestroy {
   onPasswordSave() {
     const password: PasswordUpdate = {
       old_password: this.passwordForm.get('oldPassword').value,
-      new_password: this.passwordForm.get('newPassword').value
+      new_password: this.passwordForm.get('newPassword').value,
     };
     this.accountService.updatePassword(password).subscribe(
       () => {
@@ -81,7 +79,7 @@ export class AccountPageComponent implements OnInit, OnDestroy {
         this.passwordForm.get('confirmNewPassword').setValue('');
         this.changePasswordVisible = false;
       },
-      error => this.notificationService.error(error.error.detail)
+      (error) => this.notificationService.error(error.error.detail)
     );
   }
 }

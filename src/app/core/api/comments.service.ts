@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import { Page } from './core.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CommentsService {
   constructor(private http: HttpClient) {}
@@ -17,7 +17,7 @@ export class CommentsService {
     size: number = 20
   ): Observable<Page<Comment>> {
     return this.http.get<Page<Comment>>(`/api/boards/${board}/issues/${issue}/comments`, {
-      params: { page: page.toString(), size: size.toString() }
+      params: { page: page.toString(), size: size.toString() },
     });
   }
 

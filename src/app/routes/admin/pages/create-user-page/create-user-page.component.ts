@@ -9,7 +9,7 @@ import { NotificationService } from '../../../../core/layout/notification/notifi
 @Component({
   selector: 'app-create-user-page',
   templateUrl: './create-user-page.component.html',
-  styleUrls: ['./create-user-page.component.scss']
+  styleUrls: ['./create-user-page.component.scss'],
 })
 export class CreateUserPageComponent implements OnInit, OnDestroy {
   constructor(
@@ -29,11 +29,11 @@ export class CreateUserPageComponent implements OnInit, OnDestroy {
 
   onSubmit(user: NewUser) {
     this.usersService.create(user).subscribe(
-      createdUser => {
+      (createdUser) => {
         this.notificationService.success('User has been created');
         this.router.navigate(['/admin', 'users']);
       },
-      error => this.notificationService.error(error.error.detail || error.error.title)
+      (error) => this.notificationService.error(error.error.detail || error.error.title)
     );
   }
 }
