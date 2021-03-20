@@ -1,4 +1,4 @@
-FROM node:12.13.0 as builder
+FROM node:15.12.0-slim as builder
 
 WORKDIR /builder
 
@@ -6,7 +6,7 @@ COPY . ./
 RUN npm install && npm run build
 
 
-FROM nginx:1.19.0-alpine
+FROM nginx:1.19.8-alpine
 
 WORKDIR /usr/share/nginx/html
 
