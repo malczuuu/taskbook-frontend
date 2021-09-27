@@ -1,5 +1,5 @@
-@import "~node_modules/bootstrap/scss/bootstrap.scss";
-@import '~node_modules/ngx-toastr/toastr-bs4-alert';
+@import '~bootstrap/scss/bootstrap';
+@import '~ngx-toastr/toastr-bs4-alert';
 
 html,
 body {
@@ -13,3 +13,5 @@ main>.container {
 code {
   font-size: 80%;
 }
+
+/* Importing Bootstrap SCSS file. */
