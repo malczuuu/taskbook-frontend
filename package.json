@@ -1,6 +1,6 @@
 {
   "name": "taskbook-frontend",
-  "version": "0.7.0",
+  "version": "1.0.0-SNAPSHOT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 26161",
