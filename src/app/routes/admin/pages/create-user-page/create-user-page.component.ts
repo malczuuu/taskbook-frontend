@@ -7,17 +7,17 @@ import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcru
 import { NotificationService } from '../../../../core/layout/notification/notification.service';
 
 @Component({
-    selector: 'app-create-user-page',
-    templateUrl: './create-user-page.component.html',
-    styleUrls: ['./create-user-page.component.scss'],
-    standalone: false
+  selector: 'app-create-user-page',
+  templateUrl: './create-user-page.component.html',
+  styleUrls: ['./create-user-page.component.scss'],
+  standalone: false,
 })
 export class CreateUserPageComponent implements OnInit, OnDestroy {
   constructor(
     private usersService: UsersService,
     private breadcrumbsService: BreadcrumbsService,
     private notificationService: NotificationService,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit() {
@@ -34,7 +34,7 @@ export class CreateUserPageComponent implements OnInit, OnDestroy {
         this.notificationService.success('User has been created');
         this.router.navigate(['/admin', 'users']);
       },
-      (error) => this.notificationService.error(error.error.detail || error.error.title)
+      (error) => this.notificationService.error(error.error.detail || error.error.title),
     );
   }
 }

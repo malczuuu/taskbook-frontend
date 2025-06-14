@@ -6,10 +6,10 @@ import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcru
 import { NotificationService } from '../../../../core/layout/notification/notification.service';
 
 @Component({
-    selector: 'app-account-page',
-    templateUrl: './account-page.component.html',
-    styleUrls: ['./account-page.component.scss'],
-    standalone: false
+  selector: 'app-account-page',
+  templateUrl: './account-page.component.html',
+  styleUrls: ['./account-page.component.scss'],
+  standalone: false,
 })
 export class AccountPageComponent implements OnInit, OnDestroy {
   account: Account;
@@ -20,7 +20,7 @@ export class AccountPageComponent implements OnInit, OnDestroy {
   constructor(
     private accountService: AccountService,
     private breadcrumbsService: BreadcrumbsService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
   ) {}
 
   ngOnInit() {
@@ -56,7 +56,7 @@ export class AccountPageComponent implements OnInit, OnDestroy {
     };
     this.accountService.updateAccount(update).subscribe(
       (account) => this.assignAccount(account),
-      (error) => this.notificationService.error(error.error.detail)
+      (error) => this.notificationService.error(error.error.detail),
     );
   }
 
@@ -80,7 +80,7 @@ export class AccountPageComponent implements OnInit, OnDestroy {
         this.passwordForm.get('confirmNewPassword').setValue('');
         this.changePasswordVisible = false;
       },
-      (error) => this.notificationService.error(error.error.detail)
+      (error) => this.notificationService.error(error.error.detail),
     );
   }
 }

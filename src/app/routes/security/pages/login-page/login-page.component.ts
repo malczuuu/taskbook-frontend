@@ -5,17 +5,17 @@ import { SecurityService } from '../../../../core/api/security.service';
 import { NotificationService } from '../../../../core/layout/notification/notification.service';
 
 @Component({
-    selector: 'app-login-page',
-    templateUrl: './login-page.component.html',
-    styleUrls: ['./login-page.component.scss'],
-    standalone: false
+  selector: 'app-login-page',
+  templateUrl: './login-page.component.html',
+  styleUrls: ['./login-page.component.scss'],
+  standalone: false,
 })
 export class LoginPageComponent implements OnInit {
   form: UntypedFormGroup;
 
   constructor(
     private securityService: SecurityService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
   ) {}
 
   ngOnInit() {
@@ -29,7 +29,7 @@ export class LoginPageComponent implements OnInit {
     const credentials = this.readForm();
     this.securityService.login(credentials).subscribe(
       (session) => this.onLoginSuccessful(session),
-      (error) => this.notificationService.error('Bad credentials')
+      (error) => this.notificationService.error('Bad credentials'),
     );
   }
 

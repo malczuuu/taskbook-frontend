@@ -5,10 +5,10 @@ import { AccountService } from '../../../../core/api/account.service';
 import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcrumbs.service';
 
 @Component({
-    selector: 'app-home-page',
-    templateUrl: './home-page.component.html',
-    styleUrls: ['./home-page.component.scss'],
-    standalone: false
+  selector: 'app-home-page',
+  templateUrl: './home-page.component.html',
+  styleUrls: ['./home-page.component.scss'],
+  standalone: false,
 })
 export class HomePageComponent implements OnInit, OnDestroy {
   @HostBinding('class')
@@ -20,7 +20,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   constructor(
     private breadcrumbsService: BreadcrumbsService,
-    private accountService: AccountService
+    private accountService: AccountService,
   ) {}
 
   ngOnInit() {

@@ -6,12 +6,15 @@ import { SecurityService } from '../api/security.service';
 @Injectable({
   providedIn: 'root',
 })
-export class LoggedOutGuard  {
-  constructor(private securityService: SecurityService, private router: Router) {}
+export class LoggedOutGuard {
+  constructor(
+    private securityService: SecurityService,
+    private router: Router,
+  ) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
+    state: RouterStateSnapshot,
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const authenticated = this.securityService.isAuthenticated();
     if (authenticated) {

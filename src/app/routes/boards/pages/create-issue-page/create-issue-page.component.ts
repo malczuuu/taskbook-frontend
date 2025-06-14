@@ -7,10 +7,10 @@ import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcru
 import { NotificationService } from '../../../../core/layout/notification/notification.service';
 
 @Component({
-    selector: 'app-create-issue-page',
-    templateUrl: './create-issue-page.component.html',
-    styleUrls: ['./create-issue-page.component.scss'],
-    standalone: false
+  selector: 'app-create-issue-page',
+  templateUrl: './create-issue-page.component.html',
+  styleUrls: ['./create-issue-page.component.scss'],
+  standalone: false,
 })
 export class CreateIssuePageComponent implements OnInit, OnDestroy {
   board: string;
@@ -21,7 +21,7 @@ export class CreateIssuePageComponent implements OnInit, OnDestroy {
     private breadcrumbsService: BreadcrumbsService,
     private route: ActivatedRoute,
     private router: Router,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
   ) {}
 
   ngOnInit() {
@@ -42,7 +42,7 @@ export class CreateIssuePageComponent implements OnInit, OnDestroy {
   onSave() {
     this.issueService.create(this.board, this.readNewIssue()).subscribe(
       (issue) => this.router.navigate([`/boards/${this.board}/issues`]),
-      (error) => this.notificationService.error(error.error.detail || error.error.title)
+      (error) => this.notificationService.error(error.error.detail || error.error.title),
     );
   }
 

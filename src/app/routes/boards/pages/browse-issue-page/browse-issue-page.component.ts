@@ -15,10 +15,10 @@ import { NotificationService } from '../../../../core/layout/notification/notifi
 import { SelectAssigneeModalComponent } from '../../components/select-assignee-modal/select-assignee-modal.component';
 
 @Component({
-    selector: 'app-browse-issue-page',
-    templateUrl: './browse-issue-page.component.html',
-    styleUrls: ['./browse-issue-page.component.scss'],
-    standalone: false
+  selector: 'app-browse-issue-page',
+  templateUrl: './browse-issue-page.component.html',
+  styleUrls: ['./browse-issue-page.component.scss'],
+  standalone: false,
 })
 export class BrowseIssuePageComponent implements OnInit, OnDestroy {
   board: string;
@@ -39,7 +39,7 @@ export class BrowseIssuePageComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private breadcrumbsService: BreadcrumbsService,
     private notificationService: NotificationService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
   ) {}
 
   ngOnInit() {
@@ -86,7 +86,7 @@ export class BrowseIssuePageComponent implements OnInit, OnDestroy {
         this.notificationService.success('Issue updated successfully');
         this.issue = issue;
       },
-      (error) => this.notificationService.error(error.error.detail || error.error.title)
+      (error) => this.notificationService.error(error.error.detail || error.error.title),
     );
   }
 
@@ -103,7 +103,7 @@ export class BrowseIssuePageComponent implements OnInit, OnDestroy {
     const modal: NgbModalRef = this.modalService.open(SelectAssigneeModalComponent);
     modal.result.then(
       (result) => this.assign(result),
-      () => {}
+      () => {},
     );
   }
 

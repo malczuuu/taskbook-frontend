@@ -6,10 +6,10 @@ import { IssuesService } from '../../../../core/api/issues.service';
 import { User } from '../../../../core/api/users.model';
 
 @Component({
-    selector: 'app-issues-list-page',
-    templateUrl: './issues-list-page.component.html',
-    styleUrls: ['./issues-list-page.component.scss'],
-    standalone: false
+  selector: 'app-issues-list-page',
+  templateUrl: './issues-list-page.component.html',
+  styleUrls: ['./issues-list-page.component.scss'],
+  standalone: false,
 })
 export class IssuesListPageComponent implements OnInit {
   issues: Page<Issue> = emptyPage<Issue>();
@@ -17,7 +17,10 @@ export class IssuesListPageComponent implements OnInit {
   page = 0;
   size = 20;
 
-  constructor(private issuesService: IssuesService, private route: ActivatedRoute) {}
+  constructor(
+    private issuesService: IssuesService,
+    private route: ActivatedRoute,
+  ) {}
 
   ngOnInit() {
     this.route.parent.parent.params.subscribe((params) => {

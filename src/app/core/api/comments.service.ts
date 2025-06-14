@@ -14,7 +14,7 @@ export class CommentsService {
     board: string,
     issue: string,
     page: number = 0,
-    size: number = 20
+    size: number = 20,
   ): Observable<Page<Comment>> {
     return this.http.get<Page<Comment>>(`/api/boards/${board}/issues/${issue}/comments`, {
       params: { page: page.toString(), size: size.toString() },

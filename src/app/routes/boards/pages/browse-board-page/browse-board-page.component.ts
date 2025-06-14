@@ -7,10 +7,10 @@ import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcru
 import { MenuItem } from '../../../../core/layout/menu/menu.model';
 
 @Component({
-    selector: 'app-browse-board-page',
-    templateUrl: './browse-board-page.component.html',
-    styleUrls: ['./browse-board-page.component.scss'],
-    standalone: false
+  selector: 'app-browse-board-page',
+  templateUrl: './browse-board-page.component.html',
+  styleUrls: ['./browse-board-page.component.scss'],
+  standalone: false,
 })
 export class BrowseBoardPageComponent implements OnInit, OnDestroy {
   menu: MenuItem[] = [{ url: 'issues', name: 'Issues' }];
@@ -21,7 +21,7 @@ export class BrowseBoardPageComponent implements OnInit, OnDestroy {
     private accountService: AccountService,
     private route: ActivatedRoute,
     private router: Router,
-    private breadcrumbsService: BreadcrumbsService
+    private breadcrumbsService: BreadcrumbsService,
   ) {}
 
   ngOnInit() {
@@ -35,8 +35,8 @@ export class BrowseBoardPageComponent implements OnInit, OnDestroy {
     this.route.params.subscribe((params) =>
       this.boardsService.getOne(params.board).subscribe(
         (board) => this.assignBoard(board),
-        (error) => this.router.navigate(['/boards'])
-      )
+        (error) => this.router.navigate(['/boards']),
+      ),
     );
   }
 

@@ -3,15 +3,18 @@ import { ActivatedRoute } from '@angular/router';
 import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcrumbs.service';
 
 @Component({
-    selector: 'app-issues-page',
-    templateUrl: './issues-page.component.html',
-    styleUrls: ['./issues-page.component.scss'],
-    standalone: false
+  selector: 'app-issues-page',
+  templateUrl: './issues-page.component.html',
+  styleUrls: ['./issues-page.component.scss'],
+  standalone: false,
 })
 export class IssuesPageComponent implements OnInit, OnDestroy {
   board: string;
 
-  constructor(private breadcrumbsService: BreadcrumbsService, private route: ActivatedRoute) {}
+  constructor(
+    private breadcrumbsService: BreadcrumbsService,
+    private route: ActivatedRoute,
+  ) {}
 
   ngOnInit() {
     this.route.parent.params.subscribe((params) => {

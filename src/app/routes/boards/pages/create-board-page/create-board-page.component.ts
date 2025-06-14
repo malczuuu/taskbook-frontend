@@ -7,10 +7,10 @@ import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcru
 import { NotificationService } from '../../../../core/layout/notification/notification.service';
 
 @Component({
-    selector: 'app-create-board-page',
-    templateUrl: './create-board-page.component.html',
-    styleUrls: ['./create-board-page.component.scss'],
-    standalone: false
+  selector: 'app-create-board-page',
+  templateUrl: './create-board-page.component.html',
+  styleUrls: ['./create-board-page.component.scss'],
+  standalone: false,
 })
 export class CreateBoardPageComponent implements OnInit, OnDestroy {
   form: UntypedFormGroup;
@@ -19,7 +19,7 @@ export class CreateBoardPageComponent implements OnInit, OnDestroy {
     private boardsService: BoardsService,
     private router: Router,
     private breadcrumbsService: BreadcrumbsService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
   ) {}
 
   ngOnInit() {
@@ -38,7 +38,7 @@ export class CreateBoardPageComponent implements OnInit, OnDestroy {
   onSave() {
     this.boardsService.create(this.readBoard()).subscribe(
       (board) => this.router.navigate(['/boards', board.uid]),
-      (error) => this.notificationService.error(error.error.detail || error.error.title)
+      (error) => this.notificationService.error(error.error.detail || error.error.title),
     );
   }
 
