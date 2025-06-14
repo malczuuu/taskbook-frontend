@@ -16,22 +16,22 @@ Afterwards it served the purpose of testing Angular updates.
 Building Docker automatically builds Angular distribution in a multi-stage build.
 
 ```bash
-$ docker build -t taskbook-frontend:latest .
+docker build -t taskbook-frontend:latest .
 ```
 
 ## Running on local machine
 
-Running locally requires to `taskbook` application (along with its own dependencies) to be up and
-running. Angular development server launches a reverse-proxy for `/api` paths. Follow
-[backend instructions][taskbook-running] to launch it.
+Running locally requires [`taskbook` backend application][[taskbook]] (along with its own
+dependencies) to be up and running. Angular development server launches a reverse-proxy for `/api`
+paths. Follow [backend instructions][taskbook-running] to launch it.
 
 To run Angular development server use `start` npm task.
 
 ```shell
-$ npm start
+npm start
 ```
 
-The application will be available on [`http://localhost:4200`](http://localhost:4200).
+The application will be available on [`http://localhost:26161`](http://localhost:26161).
 
 **Note**, that as a Docker service, the application works as a [nginx][nginx] server, available on
 port `:80`.
