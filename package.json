@@ -6,7 +6,7 @@
     "start": "ng serve --port 26161",
     "build": "ng build --configuration=production",
     "test": "ng test",
-    "prettier": "prettier --write \"src/app/**/*\""
+    "prettier": "prettier --write \"src/**/*\""
   },
   "private": true,
   "dependencies": {

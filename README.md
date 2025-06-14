@@ -7,9 +7,9 @@ Afterwards it served the purpose of testing Angular updates.
 
 ## Table of Contents
 
-* [Building Docker image](#building-docker-image)
-* [Running on local machine](#running-on-local-machine)
-* [Project repositories](#project-repositories)
+- [Building Docker image](#building-docker-image)
+- [Running on local machine](#running-on-local-machine)
+- [Project repositories](#project-repositories)
 
 ## Building Docker image
 
@@ -38,15 +38,11 @@ port `:80`.
 
 ## Project repositories
 
-* [`taskbook`][taskbook], which holds backend application.
-* [`taskbook-frontend`][taskbook-frontend], which holds frontend application.
+- [`taskbook`][taskbook], which holds backend application.
+- [`taskbook-frontend`][taskbook-frontend], which holds frontend application.
 
 [pk.edu.pl]: https://pk.edu.pl
-
 [taskbook]: https://github.com/malczuuu/taskbook
-
 [taskbook-running]: https://github.com/malczuuu/taskbook#running-on-local-machine
-
 [taskbook-frontend]: https://github.com/malczuuu/taskbook-frontend
-
 [nginx]: https://hub.docker.com/_/nginx
