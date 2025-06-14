@@ -3,12 +3,15 @@ import * as moment from 'moment';
 import { Account } from '../../../../core/api/account.model';
 import { AccountService } from '../../../../core/api/account.service';
 import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcrumbs.service';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { NgIf } from '@angular/common';
+import { BreadcrumbsComponent } from '../../../../core/layout/breadcrumbs/breadcrumbs.component';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss'],
-  standalone: false,
+  imports: [RouterLink, NgIf, RouterLinkActive, BreadcrumbsComponent, RouterOutlet],
 })
 export class HomePageComponent implements OnInit, OnDestroy {
   @HostBinding('class')

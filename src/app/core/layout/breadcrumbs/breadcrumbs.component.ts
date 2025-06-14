@@ -2,12 +2,14 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Breadcrumb } from './breadcrumbs.model';
 import { BreadcrumbsService } from './breadcrumbs.service';
+import { NgFor, NgIf } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-breadcrumbs',
   templateUrl: './breadcrumbs.component.html',
   styleUrls: ['./breadcrumbs.component.scss'],
-  standalone: false,
+  imports: [NgFor, NgIf, RouterLink],
 })
 export class BreadcrumbsComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];

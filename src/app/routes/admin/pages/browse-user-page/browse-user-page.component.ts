@@ -3,12 +3,13 @@ import { ActivatedRoute } from '@angular/router';
 import { User } from '../../../../core/api/users.model';
 import { UsersService } from '../../../../core/api/users.service';
 import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcrumbs.service';
+import { NgIf, JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-browse-user-page',
   templateUrl: './browse-user-page.component.html',
   styleUrls: ['./browse-user-page.component.scss'],
-  standalone: false,
+  imports: [NgIf, JsonPipe],
 })
 export class BrowseUserPageComponent implements OnInit, OnDestroy {
   user: User = null;

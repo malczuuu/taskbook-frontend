@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, ReactiveFormsModule } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { User } from 'src/app/core/api/users.model';
 import { emptyPage, Page } from '../../../../core/api/core.model';
 import { UsersService } from '../../../../core/api/users.service';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-select-assignee-modal',
   templateUrl: './select-assignee-modal.component.html',
   styleUrls: ['./select-assignee-modal.component.scss'],
-  standalone: false,
+  imports: [ReactiveFormsModule, NgFor],
 })
 export class SelectAssigneeModalComponent implements OnInit {
   users: Page<User> = emptyPage();

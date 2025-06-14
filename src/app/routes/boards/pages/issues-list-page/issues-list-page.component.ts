@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { emptyPage, Page } from '../../../../core/api/core.model';
 import { Issue } from '../../../../core/api/issues.model';
 import { IssuesService } from '../../../../core/api/issues.service';
 import { User } from '../../../../core/api/users.model';
+import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-issues-list-page',
   templateUrl: './issues-list-page.component.html',
   styleUrls: ['./issues-list-page.component.scss'],
-  standalone: false,
+  imports: [NgbPagination, NgFor, RouterLink, NgIf],
 })
 export class IssuesListPageComponent implements OnInit {
   issues: Page<Issue> = emptyPage<Issue>();

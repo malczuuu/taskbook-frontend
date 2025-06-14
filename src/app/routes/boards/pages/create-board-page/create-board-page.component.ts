@@ -1,5 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { Board } from '../../../../core/api/boards.model';
 import { BoardsService } from '../../../../core/api/boards.service';
@@ -10,7 +15,7 @@ import { NotificationService } from '../../../../core/layout/notification/notifi
   selector: 'app-create-board-page',
   templateUrl: './create-board-page.component.html',
   styleUrls: ['./create-board-page.component.scss'],
-  standalone: false,
+  imports: [ReactiveFormsModule],
 })
 export class CreateBoardPageComponent implements OnInit, OnDestroy {
   form: UntypedFormGroup;

@@ -1,14 +1,22 @@
 import { User } from 'src/app/core/api/users.model';
-import { UntypedFormGroup, Validators, UntypedFormControl } from '@angular/forms';
+import {
+  UntypedFormGroup,
+  Validators,
+  UntypedFormControl,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { Comment, NewComment } from '../../../../core/api/comments.model';
 import { Page, emptyPage } from '../../../../core/api/core.model';
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { NgFor } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-comment-section',
   templateUrl: './comment-section.component.html',
   styleUrls: ['./comment-section.component.scss'],
-  standalone: false,
+  imports: [ReactiveFormsModule, NgFor, RouterLink, NgbPagination],
 })
 export class CommentSectionComponent implements OnInit {
   @Input()

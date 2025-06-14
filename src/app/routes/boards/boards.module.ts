@@ -16,7 +16,11 @@ import { SelectAssigneeModalComponent } from './components/select-assignee-modal
 import { CommentSectionComponent } from './components/comment-section/comment-section.component';
 
 @NgModule({
-  declarations: [
+  imports: [
+    CommonModule,
+    BoardsRoutingModule,
+    ReactiveFormsModule,
+    CoreModule,
     BoardsPageComponent,
     CreateBoardPageComponent,
     BrowseBoardPageComponent,
@@ -29,6 +33,5 @@ import { CommentSectionComponent } from './components/comment-section/comment-se
     SelectAssigneeModalComponent,
     CommentSectionComponent,
   ],
-  imports: [CommonModule, BoardsRoutingModule, ReactiveFormsModule, CoreModule],
 })
 export class BoardsModule {}

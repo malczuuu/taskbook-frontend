@@ -1,5 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NewIssue } from '../../../../core/api/issues.model';
 import { IssuesService } from '../../../../core/api/issues.service';
@@ -10,7 +15,7 @@ import { NotificationService } from '../../../../core/layout/notification/notifi
   selector: 'app-create-issue-page',
   templateUrl: './create-issue-page.component.html',
   styleUrls: ['./create-issue-page.component.scss'],
-  standalone: false,
+  imports: [ReactiveFormsModule],
 })
 export class CreateIssuePageComponent implements OnInit, OnDestroy {
   board: string;

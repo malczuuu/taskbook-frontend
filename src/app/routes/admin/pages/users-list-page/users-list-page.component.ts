@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { emptyPage, Page } from '../../../../core/api/core.model';
 import { User } from '../../../../core/api/users.model';
 import { UsersService } from '../../../../core/api/users.service';
 import { NotificationService } from '../../../../core/layout/notification/notification.service';
+import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
+import { UsersListComponent } from '../../components/users-list/users-list.component';
 
 @Component({
   selector: 'app-users-list-page',
   templateUrl: './users-list-page.component.html',
   styleUrls: ['./users-list-page.component.scss'],
-  standalone: false,
+  imports: [RouterLink, NgbPagination, UsersListComponent],
 })
 export class UsersListPageComponent implements OnInit {
   page = 0;

@@ -1,12 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcrumbs.service';
 
 @Component({
   selector: 'app-issues-page',
   templateUrl: './issues-page.component.html',
   styleUrls: ['./issues-page.component.scss'],
-  standalone: false,
+  imports: [RouterOutlet],
 })
 export class IssuesPageComponent implements OnInit, OnDestroy {
   board: string;

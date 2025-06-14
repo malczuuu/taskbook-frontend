@@ -3,12 +3,13 @@ import { ActivatedRoute } from '@angular/router';
 import { User } from '../../../../core/api/users.model';
 import { UsersService } from '../../../../core/api/users.service';
 import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcrumbs.service';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-user-info-page',
   templateUrl: './user-info-page.component.html',
   styleUrls: ['./user-info-page.component.scss'],
-  standalone: false,
+  imports: [NgIf],
 })
 export class UserInfoPageComponent implements OnInit, OnDestroy {
   userUid = '';

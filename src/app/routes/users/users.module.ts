@@ -5,7 +5,6 @@ import { UserInfoPageComponent } from './pages/user-info-page/user-info-page.com
 import { UsersRoutingModule } from './users-routing.module';
 
 @NgModule({
-  declarations: [UserInfoPageComponent],
-  imports: [CommonModule, UsersRoutingModule, CoreModule],
+  imports: [CommonModule, UsersRoutingModule, CoreModule, UserInfoPageComponent],
 })
 export class UsersModule {}

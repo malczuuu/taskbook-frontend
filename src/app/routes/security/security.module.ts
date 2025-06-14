@@ -6,7 +6,12 @@ import { LogoutPageComponent } from './pages/logout-page/logout-page.component';
 import { SecurityRoutingModule } from './security-routing.module';
 
 @NgModule({
-  declarations: [LoginPageComponent, LogoutPageComponent],
-  imports: [CommonModule, SecurityRoutingModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    SecurityRoutingModule,
+    ReactiveFormsModule,
+    LoginPageComponent,
+    LogoutPageComponent,
+  ],
 })
 export class SecurityModule {}

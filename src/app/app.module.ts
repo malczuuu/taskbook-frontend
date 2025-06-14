@@ -13,22 +13,3 @@ import { JwtModule } from '@auth0/angular-jwt';
 export function tokenGetter() {
   return localStorage.getItem('session.token');
 }
-
-@NgModule({
-  declarations: [AppComponent],
-  bootstrap: [AppComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    CoreModule,
-    BrowserAnimationsModule,
-    ToastrModule.forRoot(),
-    BoardsModule,
-    NgbModule,
-    JwtModule.forRoot({
-      config: { tokenGetter },
-    }),
-  ],
-  providers: [provideHttpClient(withInterceptorsFromDi())],
-})
-export class AppModule {}

@@ -1,11 +1,13 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { User } from '../../../../core/api/users.model';
+import { NgFor } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.scss'],
-  standalone: false,
+  imports: [NgFor, ReactiveFormsModule],
 })
 export class UsersListComponent {
   @Input()

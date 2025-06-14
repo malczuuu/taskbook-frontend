@@ -12,7 +12,11 @@ import { UsersListPageComponent } from './pages/users-list-page/users-list-page.
 import { UsersPageComponent } from './pages/users-page/users-page.component';
 
 @NgModule({
-  declarations: [
+  imports: [
+    CommonModule,
+    AdminRoutingModule,
+    ReactiveFormsModule,
+    CoreModule,
     AdminPageComponent,
     UsersPageComponent,
     BrowseUserPageComponent,
@@ -21,6 +25,5 @@ import { UsersPageComponent } from './pages/users-page/users-page.component';
     UsersListComponent,
     NewUserFormComponent,
   ],
-  imports: [CommonModule, AdminRoutingModule, ReactiveFormsModule, CoreModule],
 })
 export class AdminModule {}

@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { Credentials, Session } from '../../../../core/api/security.model';
 import { SecurityService } from '../../../../core/api/security.service';
 import { NotificationService } from '../../../../core/layout/notification/notification.service';
@@ -8,7 +13,7 @@ import { NotificationService } from '../../../../core/layout/notification/notifi
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss'],
-  standalone: false,
+  imports: [ReactiveFormsModule],
 })
 export class LoginPageComponent implements OnInit {
   form: UntypedFormGroup;

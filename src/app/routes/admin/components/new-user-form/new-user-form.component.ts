@@ -1,12 +1,17 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { NewUser } from '../../../../core/api/users.model';
 
 @Component({
   selector: 'app-new-user-form',
   templateUrl: './new-user-form.component.html',
   styleUrls: ['./new-user-form.component.scss'],
-  standalone: false,
+  imports: [ReactiveFormsModule],
 })
 export class NewUserFormComponent implements OnInit {
   form: UntypedFormGroup;

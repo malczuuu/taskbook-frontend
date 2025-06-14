@@ -1,16 +1,18 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { BoardsService } from 'src/app/core/api/boards.service';
 import { AccountService } from '../../../../core/api/account.service';
 import { Board } from '../../../../core/api/boards.model';
 import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcrumbs.service';
 import { MenuItem } from '../../../../core/layout/menu/menu.model';
+import { NgIf } from '@angular/common';
+import { MenuComponent } from '../../../../core/layout/menu/menu.component';
 
 @Component({
   selector: 'app-browse-board-page',
   templateUrl: './browse-board-page.component.html',
   styleUrls: ['./browse-board-page.component.scss'],
-  standalone: false,
+  imports: [NgIf, MenuComponent, RouterOutlet],
 })
 export class BrowseBoardPageComponent implements OnInit, OnDestroy {
   menu: MenuItem[] = [{ url: 'issues', name: 'Issues' }];

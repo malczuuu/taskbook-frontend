@@ -4,7 +4,7 @@ import { Page, emptyPage } from '../../../../core/api/core.model';
 import { Comment } from '../../../../core/api/comments.model';
 import { CommentsService } from '../../../../core/api/comments.service';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Issue, IssueUpdate } from '../../../../core/api/issues.model';
@@ -13,12 +13,13 @@ import { User } from '../../../../core/api/users.model';
 import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcrumbs.service';
 import { NotificationService } from '../../../../core/layout/notification/notification.service';
 import { SelectAssigneeModalComponent } from '../../components/select-assignee-modal/select-assignee-modal.component';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-browse-issue-page',
   templateUrl: './browse-issue-page.component.html',
   styleUrls: ['./browse-issue-page.component.scss'],
-  standalone: false,
+  imports: [NgIf, ReactiveFormsModule, CommentSectionComponent],
 })
 export class BrowseIssuePageComponent implements OnInit, OnDestroy {
   board: string;

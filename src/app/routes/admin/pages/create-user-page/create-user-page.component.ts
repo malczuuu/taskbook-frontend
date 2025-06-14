@@ -5,12 +5,13 @@ import { NewUser } from '../../../../core/api/users.model';
 import { UsersService } from '../../../../core/api/users.service';
 import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcrumbs.service';
 import { NotificationService } from '../../../../core/layout/notification/notification.service';
+import { NewUserFormComponent } from '../../components/new-user-form/new-user-form.component';
 
 @Component({
   selector: 'app-create-user-page',
   templateUrl: './create-user-page.component.html',
   styleUrls: ['./create-user-page.component.scss'],
-  standalone: false,
+  imports: [NewUserFormComponent],
 })
 export class CreateUserPageComponent implements OnInit, OnDestroy {
   constructor(

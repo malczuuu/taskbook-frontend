@@ -1,15 +1,21 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { Account, AccountUpdate, PasswordUpdate } from '../../../../core/api/account.model';
 import { AccountService } from '../../../../core/api/account.service';
 import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcrumbs.service';
 import { NotificationService } from '../../../../core/layout/notification/notification.service';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-account-page',
   templateUrl: './account-page.component.html',
   styleUrls: ['./account-page.component.scss'],
-  standalone: false,
+  imports: [NgIf, ReactiveFormsModule],
 })
 export class AccountPageComponent implements OnInit, OnDestroy {
   account: Account;
