@@ -1,11 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  CanActivate,
-  Router,
-  RouterStateSnapshot,
-  UrlTree
-} from '@angular/router';
+import { ActivatedRouteSnapshot, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { SecurityService } from '../api/security.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
@@ -13,7 +7,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 @Injectable({
   providedIn: 'root'
 })
-export class LoggedInGuard implements CanActivate {
+export class LoggedInGuard  {
   constructor(private securityService: SecurityService, private router: Router, private jwtHelperService: JwtHelperService) {
   }
 
