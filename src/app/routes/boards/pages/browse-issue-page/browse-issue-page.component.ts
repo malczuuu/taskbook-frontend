@@ -4,7 +4,7 @@ import { Page, emptyPage } from '../../../../core/api/core.model';
 import { Comment } from '../../../../core/api/comments.model';
 import { CommentsService } from '../../../../core/api/comments.service';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Issue, IssueUpdate } from '../../../../core/api/issues.model';
@@ -22,7 +22,7 @@ import { SelectAssigneeModalComponent } from '../../components/select-assignee-m
 export class BrowseIssuePageComponent implements OnInit, OnDestroy {
   board: string;
   issue: Issue;
-  form: FormGroup;
+  form: UntypedFormGroup;
   assignee: User = null;
 
   comments: Page<Comment> = emptyPage<Comment>();
@@ -61,10 +61,10 @@ export class BrowseIssuePageComponent implements OnInit, OnDestroy {
   private onIssueFetched(issue: Issue) {
     this.issue = issue;
     this.assign(issue.assignee);
-    this.form = new FormGroup({
-      title: new FormControl(this.issue.title),
-      status: new FormControl(this.issue.status),
-      description: new FormControl(this.issue.detail),
+    this.form = new UntypedFormGroup({
+      title: new UntypedFormControl(this.issue.title),
+      status: new UntypedFormControl(this.issue.status),
+      description: new UntypedFormControl(this.issue.detail),
     });
     this.fetchComments();
   }

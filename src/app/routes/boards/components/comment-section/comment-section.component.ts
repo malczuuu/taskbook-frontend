@@ -1,5 +1,5 @@
 import { User } from 'src/app/core/api/users.model';
-import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { UntypedFormGroup, Validators, UntypedFormControl } from '@angular/forms';
 import { Comment, NewComment } from '../../../../core/api/comments.model';
 import { Page, emptyPage } from '../../../../core/api/core.model';
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
@@ -19,13 +19,13 @@ export class CommentSectionComponent implements OnInit {
   @Output()
   pageChange: EventEmitter<number> = new EventEmitter<number>();
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   constructor() {}
 
   ngOnInit() {
-    this.form = new FormGroup({
-      content: new FormControl('', [Validators.required]),
+    this.form = new UntypedFormGroup({
+      content: new UntypedFormControl('', [Validators.required]),
     });
   }
 

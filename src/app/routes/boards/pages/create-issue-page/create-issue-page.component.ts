@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NewIssue } from '../../../../core/api/issues.model';
 import { IssuesService } from '../../../../core/api/issues.service';
@@ -13,7 +13,7 @@ import { NotificationService } from '../../../../core/layout/notification/notifi
 })
 export class CreateIssuePageComponent implements OnInit, OnDestroy {
   board: string;
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   constructor(
     private issueService: IssuesService,
@@ -28,9 +28,9 @@ export class CreateIssuePageComponent implements OnInit, OnDestroy {
       this.board = params.board;
       this.breadcrumbsService.push({ url: `/boards/${this.board}/issues/create`, name: 'Create' });
     });
-    this.form = new FormGroup({
-      title: new FormControl('', [Validators.required]),
-      description: new FormControl(''),
+    this.form = new UntypedFormGroup({
+      title: new UntypedFormControl('', [Validators.required]),
+      description: new UntypedFormControl(''),
     });
   }
 

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { NewUser } from '../../../../core/api/users.model';
 
 @Component({
@@ -8,7 +8,7 @@ import { NewUser } from '../../../../core/api/users.model';
   styleUrls: ['./new-user-form.component.scss'],
 })
 export class NewUserFormComponent implements OnInit {
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   @Output()
   save: EventEmitter<NewUser> = new EventEmitter<NewUser>();
@@ -16,13 +16,13 @@ export class NewUserFormComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.form = new FormGroup({
-      email: new FormControl('', [Validators.required]),
-      role: new FormControl('user', [Validators.required]),
-      password: new FormControl('', [Validators.required]),
-      confirmPassword: new FormControl('', [Validators.required]),
-      firstName: new FormControl(''),
-      lastName: new FormControl(''),
+    this.form = new UntypedFormGroup({
+      email: new UntypedFormControl('', [Validators.required]),
+      role: new UntypedFormControl('user', [Validators.required]),
+      password: new UntypedFormControl('', [Validators.required]),
+      confirmPassword: new UntypedFormControl('', [Validators.required]),
+      firstName: new UntypedFormControl(''),
+      lastName: new UntypedFormControl(''),
     });
   }
 

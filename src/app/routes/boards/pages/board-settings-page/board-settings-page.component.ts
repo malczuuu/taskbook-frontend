@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Board } from '../../../../core/api/boards.model';
 import { BoardsService } from '../../../../core/api/boards.service';
@@ -13,7 +13,7 @@ import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcru
 export class BoardSettingsPageComponent implements OnInit, OnDestroy {
   private boardUid = '';
   private board: Board;
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   constructor(
     private boardsService: BoardsService,
@@ -24,10 +24,10 @@ export class BoardSettingsPageComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.breadcrumbsService.push({ url: 'settings', name: 'Settings' });
 
-    this.form = new FormGroup({
-      uid: new FormControl('', [Validators.required]),
-      name: new FormControl('', [Validators.required]),
-      description: new FormControl(''),
+    this.form = new UntypedFormGroup({
+      uid: new UntypedFormControl('', [Validators.required]),
+      name: new UntypedFormControl('', [Validators.required]),
+      description: new UntypedFormControl(''),
     });
 
     this.route.parent.params.subscribe((params) => {
@@ -42,10 +42,10 @@ export class BoardSettingsPageComponent implements OnInit, OnDestroy {
 
   private assignBoard(board: Board) {
     this.board = board;
-    this.form = new FormGroup({
-      uid: new FormControl(board.uid, [Validators.required]),
-      name: new FormControl(board.name, [Validators.required]),
-      description: new FormControl(board.description),
+    this.form = new UntypedFormGroup({
+      uid: new UntypedFormControl(board.uid, [Validators.required]),
+      name: new UntypedFormControl(board.name, [Validators.required]),
+      description: new UntypedFormControl(board.description),
     });
   }
 

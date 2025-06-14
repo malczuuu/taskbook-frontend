@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Board } from '../../../../core/api/boards.model';
 import { BoardsService } from '../../../../core/api/boards.service';
@@ -12,7 +12,7 @@ import { NotificationService } from '../../../../core/layout/notification/notifi
   styleUrls: ['./create-board-page.component.scss'],
 })
 export class CreateBoardPageComponent implements OnInit, OnDestroy {
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   constructor(
     private boardsService: BoardsService,
@@ -23,10 +23,10 @@ export class CreateBoardPageComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.breadcrumbsService.push({ url: '/boards/create', name: 'Create' });
-    this.form = new FormGroup({
-      uid: new FormControl('', [Validators.required]),
-      name: new FormControl('', [Validators.required]),
-      description: new FormControl(''),
+    this.form = new UntypedFormGroup({
+      uid: new UntypedFormControl('', [Validators.required]),
+      name: new UntypedFormControl('', [Validators.required]),
+      description: new UntypedFormControl(''),
     });
   }
 

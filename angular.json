@@ -116,6 +116,6 @@
           }
         }
       }
-    }},
-  "defaultProject": "taskbook-frontend"
+    }
+  }
 }

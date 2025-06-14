@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { User } from 'src/app/core/api/users.model';
 import { emptyPage, Page } from '../../../../core/api/core.model';
@@ -12,13 +12,13 @@ import { UsersService } from '../../../../core/api/users.service';
 })
 export class SelectAssigneeModalComponent implements OnInit {
   users: Page<User> = emptyPage();
-  form: FormGroup;
+  form: UntypedFormGroup;
   query = '';
 
   constructor(private usersService: UsersService, private modal: NgbActiveModal) {}
 
   ngOnInit() {
-    this.form = new FormGroup({ query: new FormControl('') });
+    this.form = new UntypedFormGroup({ query: new UntypedFormControl('') });
     this.fetch();
   }
 

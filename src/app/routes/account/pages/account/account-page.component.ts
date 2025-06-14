@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Account, AccountUpdate, PasswordUpdate } from '../../../../core/api/account.model';
 import { AccountService } from '../../../../core/api/account.service';
 import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcrumbs.service';
@@ -13,8 +13,8 @@ import { NotificationService } from '../../../../core/layout/notification/notifi
 export class AccountPageComponent implements OnInit, OnDestroy {
   account: Account;
   changePasswordVisible = false;
-  accountForm: FormGroup;
-  passwordForm: FormGroup;
+  accountForm: UntypedFormGroup;
+  passwordForm: UntypedFormGroup;
 
   constructor(
     private accountService: AccountService,
@@ -25,21 +25,21 @@ export class AccountPageComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.accountService.getAccount().subscribe((account) => this.assignAccount(account));
     this.breadcrumbsService.push({ url: '/account', name: 'Account' });
-    this.passwordForm = new FormGroup({
-      oldPassword: new FormControl('', [Validators.required]),
-      newPassword: new FormControl('', [Validators.required]),
-      confirmNewPassword: new FormControl('', [Validators.required]),
+    this.passwordForm = new UntypedFormGroup({
+      oldPassword: new UntypedFormControl('', [Validators.required]),
+      newPassword: new UntypedFormControl('', [Validators.required]),
+      confirmNewPassword: new UntypedFormControl('', [Validators.required]),
     });
   }
 
   private assignAccount(account: Account) {
     this.account = account;
-    this.accountForm = new FormGroup({
-      uid: new FormControl(account.uid, [Validators.required]),
-      email: new FormControl(account.email, [Validators.required]),
-      role: new FormControl(account.role, [Validators.required]),
-      firstName: new FormControl(account.first_name),
-      lastName: new FormControl(account.last_name),
+    this.accountForm = new UntypedFormGroup({
+      uid: new UntypedFormControl(account.uid, [Validators.required]),
+      email: new UntypedFormControl(account.email, [Validators.required]),
+      role: new UntypedFormControl(account.role, [Validators.required]),
+      firstName: new UntypedFormControl(account.first_name),
+      lastName: new UntypedFormControl(account.last_name),
     });
   }
 
