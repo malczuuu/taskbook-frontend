@@ -44,7 +44,6 @@
     "prettier": "^3.5.3",
     "puppeteer": "^24.10.1",
     "ts-node": "~10.9.2",
-    "tslint": "~6.1.0",
     "typescript": "~5.8.3"
   }
 }
