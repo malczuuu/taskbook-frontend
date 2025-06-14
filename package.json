@@ -7,7 +7,6 @@
     "build": "ng build --configuration=production",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
     "prettier": "prettier --write \"src/app/**/*\""
   },
   "private": true,
@@ -31,7 +30,7 @@
     "zone.js": "~0.15.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^20.0.2",
+    "@angular/build": "^20.0.2",
     "@angular/cli": "^20.0.2",
     "@angular/compiler-cli": "^20.0.3",
     "@types/jasmine": "~5.1.0",
