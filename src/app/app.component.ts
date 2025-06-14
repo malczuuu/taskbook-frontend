@@ -1,5 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { BreadcrumbsService } from './core/layout/breadcrumbs/breadcrumbs.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',

@@ -12,8 +12,8 @@
     "typeRoots": [
       "node_modules/@types"
     ],
-    "target": "ES2022",
-    "module": "preserve"
+    "target": "es2015",
+    "module": "esnext"
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
