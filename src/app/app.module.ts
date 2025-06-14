@@ -1,5 +1,5 @@
 import { BoardsModule } from './routes/boards/boards.module';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -14,23 +14,16 @@ export function tokenGetter() {
   return localStorage.getItem('session.token');
 }
 
-@NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    CoreModule,
-    BrowserAnimationsModule,
-    ToastrModule.forRoot(),
-    BoardsModule,
-    NgbModule,
-    JwtModule.forRoot({
-      config: { tokenGetter }
-    })
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [AppComponent],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        CoreModule,
+        BrowserAnimationsModule,
+        ToastrModule.forRoot(),
+        BoardsModule,
+        NgbModule,
+        JwtModule.forRoot({
+            config: { tokenGetter }
+        })], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {
 }
