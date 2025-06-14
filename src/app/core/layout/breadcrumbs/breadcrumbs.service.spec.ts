@@ -5,7 +5,7 @@ describe('BreadcrumbsService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: BreadcrumbsService = TestBed.get(BreadcrumbsService);
+    const service: BreadcrumbsService = TestBed.inject(BreadcrumbsService);
     expect(service).toBeTruthy();
   });
 });

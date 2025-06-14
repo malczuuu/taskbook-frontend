@@ -5,7 +5,7 @@ describe('HttpSessionInterceptorService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: HttpSessionInterceptor = TestBed.get(HttpSessionInterceptor);
+    const service: HttpSessionInterceptor = TestBed.inject(HttpSessionInterceptor);
     expect(service).toBeTruthy();
   });
 });
