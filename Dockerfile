@@ -1,4 +1,4 @@
-FROM node:15.12.0-slim as builder
+FROM node:24.1.0-slim as builder
 
 WORKDIR /builder
 
