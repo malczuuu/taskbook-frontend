@@ -3,9 +3,10 @@ import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcru
 import { MenuItem } from '../../../../core/layout/menu/menu.model';
 
 @Component({
-  selector: 'app-admin-page',
-  templateUrl: './admin-page.component.html',
-  styleUrls: ['./admin-page.component.scss'],
+    selector: 'app-admin-page',
+    templateUrl: './admin-page.component.html',
+    styleUrls: ['./admin-page.component.scss'],
+    standalone: false
 })
 export class AdminPageComponent implements OnInit, OnDestroy {
   menu: MenuItem[] = [{ url: 'users', name: 'Users' }];

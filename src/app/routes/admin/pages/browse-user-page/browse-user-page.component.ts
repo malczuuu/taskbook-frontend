@@ -5,9 +5,10 @@ import { UsersService } from '../../../../core/api/users.service';
 import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcrumbs.service';
 
 @Component({
-  selector: 'app-browse-user-page',
-  templateUrl: './browse-user-page.component.html',
-  styleUrls: ['./browse-user-page.component.scss'],
+    selector: 'app-browse-user-page',
+    templateUrl: './browse-user-page.component.html',
+    styleUrls: ['./browse-user-page.component.scss'],
+    standalone: false
 })
 export class BrowseUserPageComponent implements OnInit, OnDestroy {
   user: User = null;

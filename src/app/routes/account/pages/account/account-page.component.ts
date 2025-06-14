@@ -6,9 +6,10 @@ import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcru
 import { NotificationService } from '../../../../core/layout/notification/notification.service';
 
 @Component({
-  selector: 'app-account-page',
-  templateUrl: './account-page.component.html',
-  styleUrls: ['./account-page.component.scss'],
+    selector: 'app-account-page',
+    templateUrl: './account-page.component.html',
+    styleUrls: ['./account-page.component.scss'],
+    standalone: false
 })
 export class AccountPageComponent implements OnInit, OnDestroy {
   account: Account;

@@ -15,9 +15,10 @@ import { NotificationService } from '../../../../core/layout/notification/notifi
 import { SelectAssigneeModalComponent } from '../../components/select-assignee-modal/select-assignee-modal.component';
 
 @Component({
-  selector: 'app-browse-issue-page',
-  templateUrl: './browse-issue-page.component.html',
-  styleUrls: ['./browse-issue-page.component.scss'],
+    selector: 'app-browse-issue-page',
+    templateUrl: './browse-issue-page.component.html',
+    styleUrls: ['./browse-issue-page.component.scss'],
+    standalone: false
 })
 export class BrowseIssuePageComponent implements OnInit, OnDestroy {
   board: string;

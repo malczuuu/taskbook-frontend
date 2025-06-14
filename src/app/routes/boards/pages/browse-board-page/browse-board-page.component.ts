@@ -7,9 +7,10 @@ import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcru
 import { MenuItem } from '../../../../core/layout/menu/menu.model';
 
 @Component({
-  selector: 'app-browse-board-page',
-  templateUrl: './browse-board-page.component.html',
-  styleUrls: ['./browse-board-page.component.scss'],
+    selector: 'app-browse-board-page',
+    templateUrl: './browse-board-page.component.html',
+    styleUrls: ['./browse-board-page.component.scss'],
+    standalone: false
 })
 export class BrowseBoardPageComponent implements OnInit, OnDestroy {
   menu: MenuItem[] = [{ url: 'issues', name: 'Issues' }];

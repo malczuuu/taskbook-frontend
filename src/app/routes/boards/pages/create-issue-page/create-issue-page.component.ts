@@ -7,9 +7,10 @@ import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcru
 import { NotificationService } from '../../../../core/layout/notification/notification.service';
 
 @Component({
-  selector: 'app-create-issue-page',
-  templateUrl: './create-issue-page.component.html',
-  styleUrls: ['./create-issue-page.component.scss'],
+    selector: 'app-create-issue-page',
+    templateUrl: './create-issue-page.component.html',
+    styleUrls: ['./create-issue-page.component.scss'],
+    standalone: false
 })
 export class CreateIssuePageComponent implements OnInit, OnDestroy {
   board: string;

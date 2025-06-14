@@ -5,9 +5,10 @@ import { UsersService } from '../../../../core/api/users.service';
 import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcrumbs.service';
 
 @Component({
-  selector: 'app-user-info-page',
-  templateUrl: './user-info-page.component.html',
-  styleUrls: ['./user-info-page.component.scss'],
+    selector: 'app-user-info-page',
+    templateUrl: './user-info-page.component.html',
+    styleUrls: ['./user-info-page.component.scss'],
+    standalone: false
 })
 export class UserInfoPageComponent implements OnInit, OnDestroy {
   userUid = '';

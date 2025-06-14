@@ -6,9 +6,10 @@ import { UsersService } from '../../../../core/api/users.service';
 import { NotificationService } from '../../../../core/layout/notification/notification.service';
 
 @Component({
-  selector: 'app-users-list-page',
-  templateUrl: './users-list-page.component.html',
-  styleUrls: ['./users-list-page.component.scss'],
+    selector: 'app-users-list-page',
+    templateUrl: './users-list-page.component.html',
+    styleUrls: ['./users-list-page.component.scss'],
+    standalone: false
 })
 export class UsersListPageComponent implements OnInit {
   page = 0;

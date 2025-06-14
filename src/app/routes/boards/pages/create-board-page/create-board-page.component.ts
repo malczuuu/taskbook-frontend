@@ -7,9 +7,10 @@ import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcru
 import { NotificationService } from '../../../../core/layout/notification/notification.service';
 
 @Component({
-  selector: 'app-create-board-page',
-  templateUrl: './create-board-page.component.html',
-  styleUrls: ['./create-board-page.component.scss'],
+    selector: 'app-create-board-page',
+    templateUrl: './create-board-page.component.html',
+    styleUrls: ['./create-board-page.component.scss'],
+    standalone: false
 })
 export class CreateBoardPageComponent implements OnInit, OnDestroy {
   form: UntypedFormGroup;

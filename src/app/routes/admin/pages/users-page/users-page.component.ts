@@ -2,9 +2,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcrumbs.service';
 
 @Component({
-  selector: 'app-users-page',
-  templateUrl: './users-page.component.html',
-  styleUrls: ['./users-page.component.scss'],
+    selector: 'app-users-page',
+    templateUrl: './users-page.component.html',
+    styleUrls: ['./users-page.component.scss'],
+    standalone: false
 })
 export class UsersPageComponent implements OnInit, OnDestroy {
   constructor(private breadcrumbsService: BreadcrumbsService) {}

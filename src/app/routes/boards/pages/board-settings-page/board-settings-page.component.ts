@@ -6,9 +6,10 @@ import { BoardsService } from '../../../../core/api/boards.service';
 import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcrumbs.service';
 
 @Component({
-  selector: 'app-board-settings-page',
-  templateUrl: './board-settings-page.component.html',
-  styleUrls: ['./board-settings-page.component.scss'],
+    selector: 'app-board-settings-page',
+    templateUrl: './board-settings-page.component.html',
+    styleUrls: ['./board-settings-page.component.scss'],
+    standalone: false
 })
 export class BoardSettingsPageComponent implements OnInit, OnDestroy {
   private boardUid = '';

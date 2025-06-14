@@ -4,9 +4,10 @@ import { Breadcrumb } from './breadcrumbs.model';
 import { BreadcrumbsService } from './breadcrumbs.service';
 
 @Component({
-  selector: 'app-breadcrumbs',
-  templateUrl: './breadcrumbs.component.html',
-  styleUrls: ['./breadcrumbs.component.scss'],
+    selector: 'app-breadcrumbs',
+    templateUrl: './breadcrumbs.component.html',
+    styleUrls: ['./breadcrumbs.component.scss'],
+    standalone: false
 })
 export class BreadcrumbsComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];

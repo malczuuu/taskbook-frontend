@@ -6,9 +6,10 @@ import { IssuesService } from '../../../../core/api/issues.service';
 import { User } from '../../../../core/api/users.model';
 
 @Component({
-  selector: 'app-issues-list-page',
-  templateUrl: './issues-list-page.component.html',
-  styleUrls: ['./issues-list-page.component.scss'],
+    selector: 'app-issues-list-page',
+    templateUrl: './issues-list-page.component.html',
+    styleUrls: ['./issues-list-page.component.scss'],
+    standalone: false
 })
 export class IssuesListPageComponent implements OnInit {
   issues: Page<Issue> = emptyPage<Issue>();

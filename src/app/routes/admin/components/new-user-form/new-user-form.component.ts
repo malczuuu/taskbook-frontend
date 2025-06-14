@@ -3,9 +3,10 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 import { NewUser } from '../../../../core/api/users.model';
 
 @Component({
-  selector: 'app-new-user-form',
-  templateUrl: './new-user-form.component.html',
-  styleUrls: ['./new-user-form.component.scss'],
+    selector: 'app-new-user-form',
+    templateUrl: './new-user-form.component.html',
+    styleUrls: ['./new-user-form.component.scss'],
+    standalone: false
 })
 export class NewUserFormComponent implements OnInit {
   form: UntypedFormGroup;

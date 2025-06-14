@@ -5,9 +5,10 @@ import { Page, emptyPage } from '../../../../core/api/core.model';
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-comment-section',
-  templateUrl: './comment-section.component.html',
-  styleUrls: ['./comment-section.component.scss'],
+    selector: 'app-comment-section',
+    templateUrl: './comment-section.component.html',
+    styleUrls: ['./comment-section.component.scss'],
+    standalone: false
 })
 export class CommentSectionComponent implements OnInit {
   @Input()

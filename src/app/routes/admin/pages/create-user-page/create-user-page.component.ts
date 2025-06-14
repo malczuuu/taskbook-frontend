@@ -7,9 +7,10 @@ import { BreadcrumbsService } from '../../../../core/layout/breadcrumbs/breadcru
 import { NotificationService } from '../../../../core/layout/notification/notification.service';
 
 @Component({
-  selector: 'app-create-user-page',
-  templateUrl: './create-user-page.component.html',
-  styleUrls: ['./create-user-page.component.scss'],
+    selector: 'app-create-user-page',
+    templateUrl: './create-user-page.component.html',
+    styleUrls: ['./create-user-page.component.scss'],
+    standalone: false
 })
 export class CreateUserPageComponent implements OnInit, OnDestroy {
   constructor(

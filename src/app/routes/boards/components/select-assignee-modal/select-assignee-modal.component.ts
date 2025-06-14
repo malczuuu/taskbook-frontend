@@ -6,9 +6,10 @@ import { emptyPage, Page } from '../../../../core/api/core.model';
 import { UsersService } from '../../../../core/api/users.service';
 
 @Component({
-  selector: 'app-select-assignee-modal',
-  templateUrl: './select-assignee-modal.component.html',
-  styleUrls: ['./select-assignee-modal.component.scss'],
+    selector: 'app-select-assignee-modal',
+    templateUrl: './select-assignee-modal.component.html',
+    styleUrls: ['./select-assignee-modal.component.scss'],
+    standalone: false
 })
 export class SelectAssigneeModalComponent implements OnInit {
   users: Page<User> = emptyPage();
