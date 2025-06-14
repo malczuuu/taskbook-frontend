@@ -72,19 +72,19 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "taskbook-frontend:build",
-            "proxyConfig": "proxy.conf.json"
+            "proxyConfig": "proxy.conf.json",
+            "buildTarget": "taskbook-frontend:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "taskbook-frontend:build:production"
+              "buildTarget": "taskbook-frontend:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "taskbook-frontend:build"
+            "buildTarget": "taskbook-frontend:build"
           }
         },
         "test": {
